@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.app.statisticscalculator.MainController">
+   <children>
+      <SplitPane dividerPositions="0.3293795620437956" layoutY="23.0" prefHeight="577.0" prefWidth="550.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="205.0">
+               <children>
+                  <Button layoutX="53.0" layoutY="19.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="160.0" text="General" AnchorPane.bottomAnchor="519.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button layoutX="-3.0" layoutY="66.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="140.0" text="Z-Score" AnchorPane.bottomAnchor="457.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="66.0" />
+                <AnchorPane layoutX="-9.0" layoutY="261.0" minHeight="0.0" minWidth="0.0" prefHeight="310.0" prefWidth="299.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="475.0">
+               <children>
+                  <TextArea fx:id="textAreaData" layoutX="61.0" layoutY="12.0" prefHeight="66.0" prefWidth="364.0" promptText="Insert data (Seprate data by spaces not by commma, if number is e.g. 1 000 , remove space in between the numbers)" AnchorPane.bottomAnchor="497.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextArea>
+                  <Button layoutX="42.0" layoutY="92.0" mnemonicParsing="false" onAction="#calculate" prefHeight="56.0" prefWidth="128.0" text="Calculate" />
+                  <Button layoutX="191.0" layoutY="93.0" mnemonicParsing="false" onAction="#clear" prefHeight="56.0" prefWidth="139.0" text="Clear" />
+                  <ScrollPane layoutX="23.0" layoutY="173.0" prefHeight="402.0" prefWidth="364.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="173.0">
+                     <content>
+                        <GridPane alignment="CENTER" prefHeight="401.0" prefWidth="347.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="119.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="208.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="77.0" text="Sum: " GridPane.rowIndex="1" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="16.0" prefHeight="47.0" prefWidth="77.0" text="Mean:" GridPane.rowIndex="2" />
+                              <TextField fx:id="textFieldCount" editable="false" prefHeight="26.0" prefWidth="253.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="textFieldSum" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="74.0" prefHeight="47.0" prefWidth="77.0" text="Count:" />
+                              <TextField fx:id="textFieldMean" editable="false" layoutX="71.0" layoutY="84.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="textFieldMode" editable="false" layoutX="71.0" layoutY="199.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="245.0" prefHeight="47.0" prefWidth="77.0" text="Max:" GridPane.rowIndex="5" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="302.0" prefHeight="47.0" prefWidth="77.0" text="Min:" GridPane.rowIndex="6" />
+                              <TextField fx:id="textFieldMax" editable="false" layoutX="71.0" layoutY="256.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="textFieldMin" editable="false" layoutX="71.0" layoutY="313.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="313.0" prefHeight="47.0" prefWidth="77.0" text="Range:" GridPane.rowIndex="7" />
+                              <TextField fx:id="textFieldRange" editable="false" layoutX="71.0" layoutY="323.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="113.0" prefHeight="47.0" prefWidth="77.0" text="Median:" GridPane.rowIndex="3" />
+                              <TextField fx:id="textFieldMedian" editable="false" layoutX="71.0" layoutY="123.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="163.0" prefHeight="47.0" prefWidth="77.0" text="Mode:" GridPane.rowIndex="4" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="323.0" prefHeight="47.0" prefWidth="77.0" text="Variance:" GridPane.rowIndex="8" />
+                              <TextField fx:id="textFieldVariance" editable="false" layoutX="71.0" layoutY="332.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Label contentDisplay="CENTER" layoutX="20.0" layoutY="331.0" prefHeight="40.0" prefWidth="113.0" text="Standard Deviation:" GridPane.rowIndex="9" />
+                              <TextField fx:id="textFieldStnDev" editable="false" layoutX="132.0" layoutY="338.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </GridPane>
+                     </content></ScrollPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Pane layoutX="-50.0" layoutY="-86.0" prefHeight="23.0" prefWidth="550.0" AnchorPane.bottomAnchor="577.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" text="Statistics Calculator v1.0 by Lemuel Guevara" textFill="#b2b2b2">
+               <font>
+                  <Font name="Hack Regular" size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

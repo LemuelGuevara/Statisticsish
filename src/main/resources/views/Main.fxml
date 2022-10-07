@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainController">
    <left>
@@ -38,20 +39,14 @@
                   <Insets left="15.0" right="15.0" />
                </VBox.margin>
             </Button>
+            <Button layoutX="25.0" layoutY="146.0" mnemonicParsing="false" onAction="#switchCorrelation" prefHeight="32.0" prefWidth="207.0" text="Correlation">
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </left>
-   <top>
-      <HBox prefHeight="2.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Separator prefHeight="8.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets top="15.0" />
-               </HBox.margin>
-            </Separator>
-         </children>
-      </HBox>
-   </top>
    <center>
       <VBox prefHeight="294.0" prefWidth="451.0" BorderPane.alignment="CENTER">
          <children>
@@ -139,4 +134,20 @@
          </children>
       </VBox>
    </right>
+   <top>
+      <VBox prefHeight="19.0" prefWidth="534.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="6.0" prefWidth="534.0" />
+            <Label prefHeight="36.0" prefWidth="524.0" text="Statistics Calculator v1.0 by Lemuel Guevara" textFill="#a1a1a1">
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
+            </Label>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+   </top>
 </BorderPane>

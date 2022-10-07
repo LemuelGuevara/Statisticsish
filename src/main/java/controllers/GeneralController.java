@@ -1,21 +1,26 @@
+/*
+ * This controller class is the general controller for the calculator
+ * It contains the stage switching and the general page
+ * */
+
 package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import main.MainController;
-import main.TextAreaConverter;
-import main.TextClearField;
 import model.Statistics;
+import main.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralController {
-    @FXML
-    private TextArea textAreaData;
+    @FXML private TextArea textAreaData;
     @FXML private TextField textFieldCount;
     @FXML private TextField textFieldSum;
     @FXML private TextField textFieldMean;
@@ -26,6 +31,7 @@ public class GeneralController {
     @FXML private TextField textFieldRange;
     @FXML private TextField textFieldVariance;
     @FXML private TextField textFieldStnDev;
+
     @FXML private VBox contentArea;
 
     List<Double> data;
@@ -33,12 +39,10 @@ public class GeneralController {
 
     // Calculates the statistics functions
     public void onButtonActionCalculate(ActionEvent event) {
-        // Gets textAreaInput then converts into a list
-        data = TextAreaConverter.getTextAreaData(textAreaData.getText()); // List converter
+        // Takes a dataSet
+        data = TextAreaConverter.getTextAreaData(textAreaData.getText());
 
-        // Creates a new constructor (statistics) then passes in the dataSet and the dataSet count
         Statistics genCalc = new Statistics(data);
-        // Statistics computation results
         textFieldCount.setText(String.valueOf(genCalc.count));
         textFieldSum.setText(String.valueOf(genCalc.getSum()));
         textFieldMean.setText(String.valueOf(genCalc.getMean()));
@@ -49,8 +53,9 @@ public class GeneralController {
         textFieldRange.setText(String.valueOf(genCalc.getRange()));
         textFieldVariance.setText(String.valueOf(genCalc.getVar()));
         textFieldStnDev.setText(String.valueOf(genCalc.getStnDev()));
-        genCalc.execTime();
     }
+
+    // Clears all textFields and textArea
     public void onButtonActionClear(ActionEvent e) {
         textFieldsList.add(textFieldCount);
         textFieldsList.add(textFieldSum);
@@ -63,7 +68,6 @@ public class GeneralController {
         textFieldsList.add(textFieldVariance);
         textFieldsList.add(textFieldStnDev);
 
-        // Clears textArea and all textFields
         TextClearField clear = new TextClearField(textAreaData, textFieldsList);
         clear.clearField();
     }

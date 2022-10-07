@@ -1,4 +1,4 @@
-module main.app.statisticscalculator {
+module main {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,6 +7,10 @@ module main.app.statisticscalculator {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens main.app.statisticscalculator to javafx.fxml;
-    exports main.app.statisticscalculator;
+    exports main;
+    exports model;
+    exports controllers;
+    opens model to javafx.fxml;
+    opens main to javafx.fxml;
+    opens controllers to javafx.fxml;
 }

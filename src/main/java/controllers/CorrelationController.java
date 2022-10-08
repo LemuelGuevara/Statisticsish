@@ -23,13 +23,14 @@ public class CorrelationController {
     List<Double> data1, data2;
     List<TextField> correlationFields = new ArrayList<>();
 
-    // Outliers
+    // Correlation
     public void onButtonActionCalculateCorrelation(ActionEvent event) {
         // Takes 2 dataSets
         data1 = TextAreaConverter.getTextAreaData(textAreaData1.getText());
         data2 = TextAreaConverter.getTextAreaData(textAreaData2.getText());
 
-        Statistics correlation = new Statistics(data1, data2);
+        Statistics analysis = new Statistics(data1, data2);
+        Statistics.CorrelationRegression correlation = analysis.new CorrelationRegression();
         textFieldCorrelation.setText(String.valueOf(correlation.getCorrel()));
 
     }

@@ -4,13 +4,14 @@
 
 package controllers;
 
+import functions.StatisticsQuartilePercentile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import main.TextAreaConverter;
 import main.TextClearField;
-import model.Statistics;
+import functions.Statistics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +21,8 @@ public class QuartilePercentileController {
     @FXML private TextField textFieldQuart1;
     @FXML private TextField textFieldQuart2;
     @FXML private TextField textFieldQuart3;
-    @FXML private TextField textFieldPerctValue;
-    @FXML private TextField textFieldPerct;
+    @FXML private TextField textFieldPercentileValue;
+    @FXML private TextField textFieldPercentileInput;
 
     List<TextField> quartFields = new ArrayList<>();
     List<Double> dataSet;
@@ -30,12 +31,11 @@ public class QuartilePercentileController {
     public void onButtonActionCalculateQuart(ActionEvent event) {
         // Takes a dataSet
         dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        Statistics quart = new Statistics(dataSet);
-        Statistics.QuartilePercentile quarts = quart.new QuartilePercentile();
+        StatisticsQuartilePercentile quartiles = new StatisticsQuartilePercentile(dataSet);
 
-        textFieldQuart1.setText(String.valueOf(quarts.getQuart1()));
-        textFieldQuart2.setText(String.valueOf(quarts.getQuart2()));
-        textFieldQuart3.setText(String.valueOf(quarts.getQuart3()));
+        textFieldQuart1.setText(String.valueOf(quartiles.getQuart1()));
+        textFieldQuart2.setText(String.valueOf(quartiles.getQuart2()));
+        textFieldQuart3.setText(String.valueOf(quartiles.getQuart3()));
     }
 
     // Clears all textFields of the quartiles
@@ -52,15 +52,14 @@ public class QuartilePercentileController {
     public void onButtonActionCalculatePerct() {
         // Takes a textField
         dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        Statistics perct = new Statistics(dataSet, Double.parseDouble((textFieldPerct.getText())));
-        Statistics.QuartilePercentile percts = perct.new QuartilePercentile();
+        StatisticsQuartilePercentile percentile = new StatisticsQuartilePercentile(dataSet, textFieldPercentileInput);
 
-        textFieldPerctValue.setText(String.valueOf(percts.getPerct()));
+        textFieldPercentileValue.setText(String.valueOf(percentile.getPercentile()));
     }
 
     // Clears all the textFields of the percentiles
     public void onButtonActionClearPerct(ActionEvent e) {
-        textFieldPerct.clear();
-        textFieldPerctValue.clear();
+        textFieldPercentileInput.clear();
+        textFieldPercentileValue.clear();
     }
 }

@@ -13,7 +13,7 @@ import static java.lang.Math.*;
 
 public class Statistics {
     // TextFields
-    TextField popMean, zScoreX2, stnDeviation, zScoreX1;
+    TextField popMean, zScoreX2, stnDeviation, zScoreX1, xValue;
 
     // Lists
     List<Double> dataList;
@@ -56,6 +56,20 @@ public class Statistics {
     }
 
     /*
+     * Constructor that only asks for a list (textArea)
+     *
+     * @param dataList1 = textArea input1
+     * @param dataList2 = textArea input2
+     * */
+    public Statistics(List<Double> dataListX, List<Double> dataListY, TextField xValue) {
+        this.dataListX = dataListX;
+        this.dataListY = dataListY;
+        this.xValue = xValue;
+        countX = dataListX.size();
+        countY = dataListY.size();
+    }
+
+    /*
      * Constructor that asks for a list and a double value
      *
      * @param dataList = textArea input
@@ -65,12 +79,6 @@ public class Statistics {
         this.dataList = dataList;
         this.percentile = percentile;
         count = dataList.size();
-
-        // Safe sort of the dataList
-        for (int i = 0; i < count; i++) {
-            sortedDataList.add(dataList.get(i));
-            Collections.sort(sortedDataList);
-        }
     }
 
     /*
@@ -83,12 +91,6 @@ public class Statistics {
         this.dataList = dataList;
         this.zScoreX1 = zScoreX1;
         count = dataList.size();
-
-        // Safe sort of the dataList
-        for (int i = 0; i < count; i++) {
-            sortedDataList.add(dataList.get(i));
-            Collections.sort(sortedDataList);
-        }
     }
 
     /*
@@ -105,12 +107,6 @@ public class Statistics {
         this.popMean = popMean;
         this.stnDeviation = stnDeviation;
         count = dataList.size();
-
-        // Safe sort of the dataList
-        for (int i = 0; i < count; i++) {
-            sortedDataList.add(dataList.get(i));
-            Collections.sort(sortedDataList);
-        }
     }
 
     /*
@@ -385,41 +381,63 @@ public class Statistics {
         return upperBound;
     }
 
-    // Correlation
-    public double getCorrel() {
-        double correlation, sumX, sumY, yElement = 0, productXY = 0;
-        double xSquare, ySquare, xSquareSum, ySquareSum;
+    // Class for correlation and linear regression analysis
+    public class CorrelationRegression {
+        static double correlation, sumX, sumY, yElement = 0, productXY = 0;
+        static double xSquare, ySquare, xSquareSum, ySquareSum;
 
         List<Double> dataListXSquare = new ArrayList<>();
         List<Double> dataListYSquare = new ArrayList<>();
 
-        // Sum of s(x * y)
-        for (int i = 0; i < countX; i++) {
-            for (int j = 0; j < countY; j++) {
-                yElement = dataListY.get(i);
+        public CorrelationRegression() {
+            // Sum of s(x * y)
+            for (int i = 0; i < countX; i++) {
+                for (int j = 0; j < countY; j++) {
+                    yElement = dataListY.get(i);
+                }
+                productXY += dataListX.get(i) * yElement;
+
+                // Squares the elements
+                xSquare = pow(dataListX.get(i), 2);
+                ySquare = pow(yElement, 2);
+
+                // Adds to the lists
+                dataListXSquare.add(xSquare);
+                dataListYSquare.add(ySquare);
             }
-            productXY += dataListX.get(i) * yElement;
 
-            // Squares the elements
-            xSquare = pow(dataListX.get(i), 2);
-            ySquare = pow(yElement, 2);
+            // Sum of x and y square
+            xSquareSum = getSum(dataListXSquare);
+            ySquareSum = getSum(dataListYSquare);
 
-            // Adds to the lists
-            dataListXSquare.add(xSquare);
-            dataListYSquare.add(ySquare);
+            // Sum of the raw data list
+            sumX = getSum(dataListX);
+            sumY = getSum(dataListY);
         }
 
-        // Sum of x and y square
-        xSquareSum = getSum(dataListXSquare);
-        ySquareSum = getSum(dataListYSquare);
+        // Correlation
+        public double getCorrel() {
+            correlation = ((countX * productXY) - (sumX * sumY)) /
+                    sqrt((countX * xSquareSum - pow(sumX, 2)) * ((countX * ySquareSum - pow(sumY, 2))));
 
-        // Sum of the raw data list
-        sumX = getSum(dataListX);
-        sumY = getSum(dataListY);
+            return correlation;
+        }
 
-        correlation = ((countX * productXY) - (sumX * sumY)) /
-                sqrt((countX * xSquareSum - pow(sumX, 2)) * ((countX * ySquareSum - pow(sumY, 2))));
+        // Linear Regression
+        public double getLinearRegres() {
+            // lineaRegression(a) = regressionYIntercept(a) - regressionSlope(b) * xElement(x)
+            double linearRegression, regressionSlope, regressionYIntercept, xElement;
 
-        return correlation;
+            xElement = Double.parseDouble(xValue.getText());
+
+            // (a)
+            regressionYIntercept = (sumY * xSquareSum - sumX * productXY) / (countX * xSquareSum - pow(sumX, 2));
+            // (b)
+            regressionSlope = (countX * productXY - sumX * sumY) / (countX * xSquareSum - pow(sumX, 2));
+            // (y)
+            linearRegression = regressionYIntercept + (regressionSlope * xElement);
+
+            return linearRegression;
+        }
     }
 }

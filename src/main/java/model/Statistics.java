@@ -19,7 +19,7 @@ public class Statistics {
     List<Double> dataList;
     List<Double> dataListX, dataListY;
     static List<Double> sortedDataList = new ArrayList<>();
-    static Map<Double, Integer> dataListCount = new HashMap<Double, Integer>();
+    static Map<Double, Integer> dataListCount = new HashMap<>();
 
     // Doubles
     double percentile;
@@ -123,8 +123,8 @@ public class Statistics {
     }
 
     // Checks if quartile or percentile nth has a remainder
-    double checkQuartPerct(double number) {
-        BigDecimal decimalValue = new BigDecimal(String.valueOf(number));
+    double checkQuartPerct(double quartilePerecentile) {
+        BigDecimal decimalValue = new BigDecimal(String.valueOf(quartilePerecentile));
         int intValue = decimalValue.intValue();
         String decimalValuePos = decimalValue.subtract(new BigDecimal(intValue)).toPlainString();
 
@@ -133,15 +133,14 @@ public class Statistics {
         Double nextElementPosition = dataList.get(intValue);
 
         // Checks if the nth value has a remainder
-        if (number % 1 != 0) {
-            number = elementPosition + Double.parseDouble(decimalValuePos) * (nextElementPosition - elementPosition);
+        if (quartilePerecentile % 1 != 0) {
+            quartilePerecentile = elementPosition + Double.parseDouble(decimalValuePos) * (nextElementPosition - elementPosition);
         }
-        // If no remainder, given number is multiplied by 1 then gets the element position
+        // If no remainder, quartilePercentile is equivalent to the elementPosition (dataList.get(intValue - 1))
         else {
-            number *= 1;
-            number = dataList.get((int) number - 1);
+            quartilePerecentile = elementPosition;
         }
-        return number;
+        return quartilePerecentile;
     }
 
     /*

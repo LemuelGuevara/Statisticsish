@@ -109,4 +109,11 @@ public class MainController {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
+
+    // Switches to the linear regression page
+    public void switchLinearRegression(ActionEvent e) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/views/LinearRegression.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);
+    }
 }

@@ -8,9 +8,9 @@ module main {
     requires org.kordamp.bootstrapfx.core;
 
     exports main;
-    exports model;
+    exports functions;
     exports controllers;
-    opens model to javafx.fxml;
+    opens functions to javafx.fxml;
     opens main to javafx.fxml;
     opens controllers to javafx.fxml;
 }

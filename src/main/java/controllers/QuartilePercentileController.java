@@ -44,8 +44,8 @@ public class QuartilePercentileController {
         quartFields.add(textFieldQuart2);
         quartFields.add(textFieldQuart3);
 
-        TextClearField quartsClear = new TextClearField(textAreaData , quartFields);
-        quartsClear.clearField();
+        TextClearField quartsClear = new TextClearField();
+        quartsClear.clearField(textAreaData , quartFields);
     }
 
     // Percentile

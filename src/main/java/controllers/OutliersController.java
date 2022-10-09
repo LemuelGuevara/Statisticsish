@@ -38,7 +38,7 @@ public class OutliersController {
         outliersFields.add(textFieldLowerOutlier);
         outliersFields.add(textFieldUpperOutlier);
 
-        TextClearField clear = new TextClearField(textAreaData, outliersFields);
-        clear.clearField();
+        TextClearField clear = new TextClearField();
+        clear.clearField(textAreaData, outliersFields);
     }
 }

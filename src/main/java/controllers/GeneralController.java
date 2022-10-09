@@ -7,15 +7,12 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import model.Statistics;
+import functions.Statistics;
 import main.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +65,7 @@ public class GeneralController {
         textFieldsList.add(textFieldVariance);
         textFieldsList.add(textFieldStnDev);
 
-        TextClearField clear = new TextClearField(textAreaData, textFieldsList);
-        clear.clearField();
+        TextClearField clear = new TextClearField();
+        clear.clearField(textAreaData, textFieldsList);
     }
 }

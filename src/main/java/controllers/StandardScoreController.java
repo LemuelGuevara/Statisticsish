@@ -4,25 +4,25 @@
 
 package controllers;
 
+import functions.StatisticsStandardScore;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import main.TextAreaConverter;
 import main.TextClearField;
-import model.Statistics;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZScoreController {
+public class StandardScoreController {
     @FXML private TextArea textAreaData;
-    @FXML private TextField textFieldXValue1;
-    @FXML private TextField textFieldXValue2;
+    @FXML private TextField textFieldXInput1;
+    @FXML private TextField textFieldXInput2;
     @FXML private TextField textFieldPopMeanGiven;
-    @FXML private TextField textFieldPopMean;
+    @FXML private TextField textFieldPopMeanInput;
     @FXML private TextField textFieldStnDevGiven;
-    @FXML private TextField textFieldStnDev;
+    @FXML private TextField textFieldStnDevInput;
     @FXML private TextField textFieldZScore1;
     @FXML private TextField textFieldZScore2;
 
@@ -34,7 +34,7 @@ public class ZScoreController {
     public void onButtonActionCalculate(ActionEvent event) {
         // Takes a dataSet and 1 textField
         dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        Statistics zScore = new Statistics(dataSet, textFieldXValue1);
+        StatisticsStandardScore zScore = new StatisticsStandardScore(dataSet, textFieldXInput1);
 
         textFieldPopMeanGiven.setText(String.valueOf(zScore.getMean()));
         textFieldStnDevGiven.setText(String.valueOf(zScore.getStnDev()));
@@ -44,36 +44,35 @@ public class ZScoreController {
 
     // Clears the first section of the z-score page(upper)
     public void onButtonActionClear(ActionEvent event) {
-        textFieldXValue1.clear();
+        textFieldXInput1.clear();
         zScoreFields.add(textFieldPopMeanGiven);
         zScoreFields.add(textFieldStnDevGiven);
         zScoreFields.add(textFieldZScore1);
 
-        TextClearField zScoreClear = new TextClearField(textAreaData , zScoreFields);
-        zScoreClear.clearField();
+        TextClearField zScoreClear = new TextClearField();
+        zScoreClear.clearField(textAreaData , zScoreFields);
     }
 
     // If data set is not given
     public void onButtonActionCalculateZScore(ActionEvent event) {
         // Takes textFields instead of textAreas
         dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        Statistics zScore = new Statistics(dataSet, textFieldXValue2, textFieldPopMean, textFieldStnDev);
-        Statistics.ZScore zScores = zScore.new ZScore();
+        StatisticsStandardScore zScore = new StatisticsStandardScore(dataSet, textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
 
-        textFieldXValue2.setText(String.valueOf(zScores.getXValue()));
-        textFieldPopMean.setText(String.valueOf(zScores.getPopMean()));
-        textFieldStnDev.setText(String.valueOf(zScores.getStandardDeviation()));
-        textFieldZScore2.setText(String.valueOf(zScores.getZScore()));
+        textFieldXInput2.setText(String.valueOf(zScore.getXValue()));
+        textFieldPopMeanInput.setText(String.valueOf(zScore.getPopMean()));
+        textFieldStnDevInput.setText(String.valueOf(zScore.getStandardDeviation()));
+        textFieldZScore2.setText(String.valueOf(zScore.getZScore()));
     }
 
     // Clears all textFields of second section of the z-score page(lower)
     public void onButtonActionClearZScore(ActionEvent event) {
-        textFieldXValue2.clear();
-        zScoreFields2.add(textFieldPopMean);
-        zScoreFields2.add(textFieldStnDev);
+        textFieldXInput2.clear();
+        zScoreFields2.add(textFieldPopMeanInput);
+        zScoreFields2.add(textFieldStnDevInput);
         zScoreFields2.add(textFieldZScore2);
 
-        TextClearField zScoreClear = new TextClearField(textAreaData , zScoreFields2);
-        zScoreClear.clearField();
+        TextClearField zScoreClear = new TextClearField();
+        zScoreClear.clearField(zScoreFields2);
     }
 }

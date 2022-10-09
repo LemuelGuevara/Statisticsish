@@ -6,6 +6,7 @@ import java.util.List;
 
 public class DataTypes {
     TextField textField;
+    TextField textField1, textField2, textField3;
 
     List<Double> dataList;
     List<Double> dataListX;
@@ -32,5 +33,11 @@ public class DataTypes {
         this.dataListX = dataListX;
         this.dataListY = dataListY;
         this.textField = textField;
+    }
+
+    public DataTypes(TextField textField1, TextField textField2, TextField textField3) {
+        this.textField1 = textField1;
+        this.textField2 = textField2;
+        this.textField3 = textField3;
     }
 }

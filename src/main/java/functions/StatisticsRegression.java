@@ -8,17 +8,13 @@ import java.util.List;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-public class StatisticsRegression extends Statistics{
-    TextField xValue;
-
-    double correlation, sumX, sumY, yElement = 0, productXY = 0;
+public class StatisticsRegression extends Statistics {
+    double correlation, sumX, sumY, countX, countY, yElement = 0, productXY = 0;
     double xSquare, ySquare, xSquareSum, ySquareSum;
+    double linearRegression, regressionSlope, regressionYIntercept, xElement;
 
     List<Double> dataListXSquare = new ArrayList<>();
     List<Double> dataListYSquare = new ArrayList<>();
-
-    List<Double> dataListX;
-    List<Double> dataListY;
 
     /*
      * Constructor asks for 2 lists
@@ -27,8 +23,7 @@ public class StatisticsRegression extends Statistics{
      * @param dataListY = textArea2 input2
      * */
     public StatisticsRegression(List<Double> dataListX, List<Double> dataListY) {
-        this.dataListX = dataListX;
-        this.dataListY = dataListY;
+        super(dataListX, dataListY);
         countX = dataListX.size();
         countY = dataListY.size();
         xYSquares();
@@ -41,10 +36,8 @@ public class StatisticsRegression extends Statistics{
      * @param dataListY = textArea2 input2
      * @param xValue = textField input
      * */
-    public StatisticsRegression(List<Double> dataListX, List<Double> dataListY, TextField xValue) {
-        this.dataListX = dataListX;
-        this.dataListY = dataListY;
-        this.xValue = xValue;
+    public StatisticsRegression(List<Double> dataListX, List<Double> dataListY, TextField textField) {
+        super(dataListX, dataListY, textField);
         countX = dataListX.size();
         countY = dataListY.size();
         xYSquares();
@@ -88,10 +81,9 @@ public class StatisticsRegression extends Statistics{
     // Linear Regression
     public double getLinearRegression() {
         // lineaRegression(a) = regressionYIntercept(a) - regressionSlope(b) * xElement(x)
-        double linearRegression, regressionSlope, regressionYIntercept, xElement;
 
         // (x)
-        xElement = Double.parseDouble(xValue.getText());
+        xElement = Double.parseDouble(textField.getText());
 
         // (a)
         regressionYIntercept = (sumY * xSquareSum - sumX * productXY) / (countX * xSquareSum - pow(sumX, 2));

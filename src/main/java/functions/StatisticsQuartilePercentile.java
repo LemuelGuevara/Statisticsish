@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class StatisticsQuartilePercentile extends Statistics{
-    private TextField percentileValue;
     public double quart1, quart2, quart3, percentile;
 
     /*
@@ -21,7 +20,7 @@ public class StatisticsQuartilePercentile extends Statistics{
     * @param dataList = textArea input
     * */
     public StatisticsQuartilePercentile(List<Double> dataList) {
-        // Inherits the dataList from the statistics class
+        // Inherits the dataList from the dataTypes class
         super(dataList);
     }
 
@@ -31,10 +30,9 @@ public class StatisticsQuartilePercentile extends Statistics{
     * @param dataList = textArea input
     * @param percentileValue = textField input
     * */
-    public StatisticsQuartilePercentile(List<Double> dataList, TextField percentileValue) {
-        // Inherits the dataList from the statistics class
-        super(dataList);
-        this.percentileValue = percentileValue;
+    public StatisticsQuartilePercentile(List<Double> dataList, TextField textField) {
+        // Inherits the dataList from the dataTypes class
+        super(dataList, textField);
     }
 
     // Checks if quartile or percentile nth has a remainder
@@ -84,7 +82,7 @@ public class StatisticsQuartilePercentile extends Statistics{
 
     // Percentile
     public double getPercentile() {
-        percentile = (Double.parseDouble(String.valueOf(percentileValue.getText())) / 100) * (count + 1);
+        percentile = (Double.parseDouble(String.valueOf(textField.getText())) / 100) * (count + 1);
         percentile = checkQuartPercentile(percentile);
 
         return percentile;

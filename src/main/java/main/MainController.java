@@ -12,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import model.Statistics;
+import functions.Statistics;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -67,8 +67,8 @@ public class MainController {
         textFieldsList.add(textFieldVariance);
         textFieldsList.add(textFieldStnDev);
 
-        TextClearField clear = new TextClearField(textAreaData, textFieldsList);
-        clear.clearField();
+        TextClearField clear = new TextClearField();
+        clear.clearField(textAreaData, textFieldsList);
     }
 
     /*
@@ -91,7 +91,7 @@ public class MainController {
 
     // Switches to the z-score page
     public void switchZScore(ActionEvent e) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/views/ZScore.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/views/StandardScoreController.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }

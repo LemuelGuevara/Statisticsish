@@ -1,4 +1,4 @@
-package functions;
+package statistics;
 
 import javafx.scene.control.TextField;
 
@@ -17,11 +17,6 @@ public class DataTypes {
 
     public DataTypes(List<Double> dataList) {
         this.dataList = dataList;
-    }
-
-    public DataTypes(List<Double> dataList, TextField textField) {
-        this.dataList = dataList;
-        this.textField = textField;
     }
 
     public DataTypes(List<Double> dataListX, List<Double> dataListY) {

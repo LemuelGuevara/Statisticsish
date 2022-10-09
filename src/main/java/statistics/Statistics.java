@@ -3,14 +3,14 @@
 * linear regression.
 * */
 
-package functions;
+package statistics;
 
 import javafx.scene.control.TextField;
 
 import java.util.*;
 import static java.lang.Math.*;
 
-public class Statistics extends DataTypes{
+public class Statistics extends DataTypes {
 
     // Lists
 
@@ -44,16 +44,6 @@ public class Statistics extends DataTypes{
             sortedDataList.add(dataList.get(i));
             Collections.sort(sortedDataList);
         }
-    }
-
-    /*
-     * Constructor that asks for a list and textField
-     *
-     * @param dataList = textArea input
-     * @param textField = textField input
-     * */
-    public Statistics(List<Double> dataList, TextField textField) {
-        super(dataList, textField);
     }
 
     /*

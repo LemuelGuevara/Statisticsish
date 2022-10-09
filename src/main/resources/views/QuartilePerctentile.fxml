@@ -85,9 +85,9 @@
          </rowConstraints>
          <children>
             <Label prefHeight="89.0" prefWidth="477.0" text="Percentile:" />
-            <TextField fx:id="textFieldPerct" promptText="Insert percentile (data set needed)" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldPercentileInput" promptText="Insert percentile (data set needed)" GridPane.columnIndex="1" />
             <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="Percentile Value:" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldPerctValue" layoutX="91.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldPercentileValue" editable="false" layoutX="91.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <VBox.margin>
             <Insets left="20.0" right="20.0" />

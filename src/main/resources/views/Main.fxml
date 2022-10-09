@@ -49,6 +49,11 @@
                   <Insets left="15.0" right="15.0" />
                </VBox.margin>
             </Button>
+            <Button layoutX="25.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchNormalDistribution" prefHeight="32.0" prefWidth="207.0" text="Normal Distribution">
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </left>

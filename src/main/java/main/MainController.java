@@ -116,4 +116,11 @@ public class MainController {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
+
+    // Switches to the normal distribution page
+    public void switchNormalDistribution(ActionEvent e) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/views/NormalDistribution.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);
+    }
 }

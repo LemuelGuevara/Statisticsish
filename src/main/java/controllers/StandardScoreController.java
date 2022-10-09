@@ -57,11 +57,11 @@ public class StandardScoreController {
     public void onButtonActionCalculateZScore(ActionEvent event) {
         // Takes textFields instead of textAreas
         dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        StatisticsStandardScore zScore = new StatisticsStandardScore(dataSet, textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
+        StatisticsStandardScore zScore = new StatisticsStandardScore(textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
 
-        textFieldXInput2.setText(String.valueOf(zScore.getXValue()));
-        textFieldPopMeanInput.setText(String.valueOf(zScore.getPopMean()));
-        textFieldStnDevInput.setText(String.valueOf(zScore.getStandardDeviation()));
+        textFieldXInput2.setText(String.valueOf(zScore.getXValueZ()));
+        textFieldPopMeanInput.setText(String.valueOf(zScore.getPopMeanZ()));
+        textFieldStnDevInput.setText(String.valueOf(zScore.getStandardDeviationZ()));
         textFieldZScore2.setText(String.valueOf(zScore.getZScore()));
     }
 

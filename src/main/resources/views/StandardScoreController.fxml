@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="contentArea" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ZScoreController">
+<VBox fx:id="contentArea" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StandardScoreController">
     <children>
         <HBox prefHeight="100.0" prefWidth="757.0">
             <VBox.margin>
@@ -63,7 +63,7 @@
             </VBox.margin>
             <children>
                 <Label prefHeight="89.0" prefWidth="477.0" text="X value:" />
-                <TextField fx:id="textFieldXValue1" promptText="Input x value (needed)" GridPane.columnIndex="1" />
+                <TextField fx:id="textFieldXInput1" promptText="Input x value (needed)" GridPane.columnIndex="1" />
                 <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="Population Mean:" GridPane.rowIndex="1" />
                 <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Z-Score:" GridPane.rowIndex="3" />
                 <TextField fx:id="textFieldPopMeanGiven" editable="false" layoutX="91.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -90,13 +90,13 @@
             </rowConstraints>
             <children>
                 <Label prefHeight="89.0" prefWidth="477.0" text="X-Value:" />
-                <TextField fx:id="textFieldXValue2" promptText="Insert the x value if values are not given" GridPane.columnIndex="1" />
+                <TextField fx:id="textFieldXInput2" promptText="Insert the x value if values are not given" GridPane.columnIndex="1" />
                 <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="Population Mean:" GridPane.rowIndex="1" />
-                <TextField fx:id="textFieldPopMean" layoutX="91.0" layoutY="20.0" promptText="Insert population mean if values are not given" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="textFieldPopMeanInput" layoutX="91.0" layoutY="20.0" promptText="Insert population mean if values are not given" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label layoutX="10.0" layoutY="44.0" prefHeight="89.0" prefWidth="477.0" text="Z-Score:" GridPane.rowIndex="3" />
             <TextField fx:id="textFieldZScore2" editable="false" layoutX="222.0" layoutY="48.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label layoutX="10.0" layoutY="42.0" prefHeight="89.0" prefWidth="477.0" text="Standard Deviation:" GridPane.rowIndex="2" />
-            <TextField fx:id="textFieldStnDev" layoutX="222.0" layoutY="45.0" promptText="Insert standard devation if values are not given" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldStnDevInput" layoutX="222.0" layoutY="45.0" promptText="Insert standard devation if values are not given" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             </children>
             <VBox.margin>
                 <Insets left="20.0" right="20.0" top="20.0" />

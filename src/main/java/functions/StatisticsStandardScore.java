@@ -5,8 +5,7 @@ import javafx.scene.control.TextField;
 import java.util.List;
 
 public class StatisticsStandardScore extends Statistics {
-    TextField xInput1, xInput2, popMean, stnDeviation;
-    double xValue, zScore, populationMeanInput, standardDeviationInput;
+    double xValue1, xValue2, zScore, populationMeanInput, standardDeviationInput;
 
     /*
      * Constructor that asks for a list and a double value
@@ -23,9 +22,8 @@ public class StatisticsStandardScore extends Statistics {
      * @param dataList = textArea input
      * @param zsScoreX1 = textField input
      * */
-    public StatisticsStandardScore(List<Double> dataList, TextField xInput1) {
-        super(dataList);
-        this.xInput1 = xInput1;
+    public StatisticsStandardScore(List<Double> dataList, TextField textField) {
+        super(dataList, textField);
     }
 
     /*
@@ -36,48 +34,48 @@ public class StatisticsStandardScore extends Statistics {
      * @param popMean = texField input 2
      * @param stnDeviation = textField 3
      * */
-    public StatisticsStandardScore(List<Double> dataList, TextField xInput2, TextField popMean, TextField stnDeviation) {
-        super(dataList);
-        this.xInput2 = xInput2;
-        this.popMean = popMean;
-        this.stnDeviation = stnDeviation;
+    public StatisticsStandardScore(TextField textField1, TextField textField2, TextField textField3) {
+        super(textField1, textField2, textField3);
+
     }
 
     /* If dataset is given */
 
     public double getZscoreGiven() {
-        xValue = Double.parseDouble(String.valueOf(xInput1.getText()));
-        zScore = (xValue - getMean()) / getStnDev();
+        xValue1 = Double.parseDouble(String.valueOf(textField.getText()));
+        zScore = (xValue1 - getMean()) / getStnDev();
+        double m = getMean();
+        double stn = getStnDev();
 
-        return zScore;
+        return m;
     }
 
     /* If dataset is not given */
 
     // X element/value
-    public double getXValue() {
-        xValue = Double.parseDouble(String.valueOf(xInput2.getText()));
+    public double getXValueZ() {
+        xValue2 = Double.parseDouble(String.valueOf(textField1.getText()));
 
-        return xValue;
+        return xValue2;
     }
 
     // Population Mean
-    public double getPopMean() {
-        populationMeanInput = Double.parseDouble(String.valueOf(popMean.getText()));
+    public double getPopMeanZ() {
+        populationMeanInput = Double.parseDouble(String.valueOf(textField2.getText()));
 
         return populationMeanInput;
     }
 
     // Standard Deviation
-    public double getStandardDeviation() {
-        standardDeviationInput = Double.parseDouble(String.valueOf(stnDeviation.getText()));
+    public double getStandardDeviationZ() {
+        standardDeviationInput = Double.parseDouble(String.valueOf(textField3.getText()));
 
         return standardDeviationInput;
     }
 
     // Z-Score
     public double getZScore() {
-        zScore = (xValue - populationMeanInput) / standardDeviationInput;
+        zScore = (xValue2 - populationMeanInput) / standardDeviationInput;
 
         return zScore;
     }

@@ -18,7 +18,7 @@ public class Statistics extends DataTypes{
     static Map<Double, Integer> dataListCount = new HashMap<>();
 
     // Doubles
-    public static double count, median;
+    public double count, median;
     double maxElement, minElement;
 
     /*
@@ -75,6 +75,17 @@ public class Statistics extends DataTypes{
      * */
     public Statistics(List<Double> dataListX, List<Double> dataListY, TextField textField) {
         super(dataListX, dataListY, textField);
+    }
+
+    /*
+     * Constructor that asks for 3 textFields
+     *
+     * @param textField1 = textField1 input1
+     * @param textField2 = textField2 input2
+     * @param textField3 = textField3 input3
+     * */
+    public Statistics(TextField textField1, TextField textField2, TextField textField3) {
+        super(textField1, textField2, textField3);
     }
 
     /*

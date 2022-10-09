@@ -5,18 +5,20 @@
 
 package functions;
 
+import javafx.scene.control.TextField;
+
 import java.util.*;
 import static java.lang.Math.*;
 
-public class Statistics {
+public class Statistics extends DataTypes{
 
     // Lists
-    List<Double> dataList;
+
     static List<Double> sortedDataList = new ArrayList<>();
     static Map<Double, Integer> dataListCount = new HashMap<>();
 
     // Doubles
-    public static double count, countX, countY, median;
+    public static double count, median;
     double maxElement, minElement;
 
     /*
@@ -34,7 +36,7 @@ public class Statistics {
     * @param dataList = textArea input
     * */
     public Statistics(List<Double> dataList) {
-        this.dataList = dataList;
+        super(dataList);
         count = dataList.size();
 
         // Safe sort of the dataList
@@ -42,6 +44,37 @@ public class Statistics {
             sortedDataList.add(dataList.get(i));
             Collections.sort(sortedDataList);
         }
+    }
+
+    /*
+     * Constructor that asks for a list and textField
+     *
+     * @param dataList = textArea input
+     * @param textField = textField input
+     * */
+    public Statistics(List<Double> dataList, TextField textField) {
+        super(dataList, textField);
+    }
+
+    /*
+     * Constructor that asks for 2 lists
+     *
+     * @param dataListX = textArea1 input1
+     * @param dataListY = textArea2 input2
+     * */
+    public Statistics(List<Double> dataListX, List<Double> dataListY) {
+        super(dataListX, dataListY);
+    }
+
+    /*
+     * Constructor that asks for 2 lists and a textField
+     *
+     * @param dataListX = textArea1 input1
+     * @param dataListY = textArea2 input2
+     * @param textField = textField input
+     * */
+    public Statistics(List<Double> dataListX, List<Double> dataListY, TextField textField) {
+        super(dataListX, dataListY, textField);
     }
 
     /*

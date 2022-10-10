@@ -145,15 +145,15 @@
       </VBox>
    </right>
    <top>
-      <VBox prefHeight="19.0" prefWidth="534.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="29.0" prefWidth="534.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="6.0" prefWidth="534.0" />
             <Label prefHeight="36.0" prefWidth="524.0" text="Statistics Calculator v1.0 by Lemuel Guevara" textFill="#a1a1a1">
                <font>
-                  <Font size="8.0" />
+                  <Font size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets left="3.0" />
+                  <Insets left="10.0" />
                </VBox.margin>
             </Label>
             <Separator prefWidth="200.0" />

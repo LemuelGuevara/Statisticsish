@@ -8,7 +8,7 @@ package model.statistics;
 import java.util.*;
 import static java.lang.Math.*;
 
-public class Statistics extends StatisticsConstructor {
+public class StatisticsArithmetic extends StatisticsConstructor {
 
     // Lists
 
@@ -16,7 +16,6 @@ public class Statistics extends StatisticsConstructor {
     static Map<Double, Integer> dataListCount = new HashMap<>();
 
     // Doubles
-    public static double count, median;
     static double maxElement;
     static double minElement;
 
@@ -25,7 +24,7 @@ public class Statistics extends StatisticsConstructor {
      *
      * @param dataList = textArea input
      * */
-    public Statistics() {
+    public StatisticsArithmetic() {
 
     }
 
@@ -34,7 +33,7 @@ public class Statistics extends StatisticsConstructor {
     *
     * @param dataList = textArea input
     * */
-    public Statistics(List<Double> dataList) {
+    public StatisticsArithmetic(List<Double> dataList) {
         super(dataList);
         count = dataList.size();
 
@@ -55,6 +54,20 @@ public class Statistics extends StatisticsConstructor {
      * All are independent of each other
      * */
 
+    // Count
+    public static double getCount() {
+        count = dataList.size();
+
+        return count;
+    }
+
+    // Count
+    public static double getCount(List<Double> data) {
+        count = data.size();
+
+        return count;
+    }
+
     // Sum
     public static double getSum() {
         double sum = 0;
@@ -67,11 +80,11 @@ public class Statistics extends StatisticsConstructor {
         return sum;
     }
 
-    public static double getSum(List<Double> dataListCorrel) {
+    public static double getSum(List<Double> data) {
         double sum = 0;
         // Gets sum by iterating within the list
         // Rounds of the sum by 2 decimals
-        for (Double element : dataListCorrel) {
+        for (Double element : data) {
             sum += element;
             sum = roundOff(sum);
         }
@@ -87,22 +100,32 @@ public class Statistics extends StatisticsConstructor {
         return mean;
     }
 
+    // Mean
+    public static double getMean(List<Double> data) {
+        double mean;
+
+        mean = getSum(data) / data.size();
+        mean = roundOff(mean);
+        return mean;
+    }
+
     // Median
     public static double getMedian() {
+        double median;
         // If count is not even
         if (count % 2 != 0) {
-            median = (count + 1) / 2;
+            median = (count + 1.0) / 2;
             // Gets the nth element in the set
             median = sortedDataList.get((int) median - 1);
         } else { // Count of elements is even
             // Variables for the 1st & 2nd terms
             double firstTerm, secondTerm;
 
-            firstTerm = count / 2; // nth position (1st)
+            firstTerm = count / 2.0; // nth position (1st)
             // Position of the first element in the set
             firstTerm = sortedDataList.get((int) firstTerm - 1);
 
-            secondTerm = (count + 1) / 2; // nth position (2nd)
+            secondTerm = (count + 1.0) / 2; // nth position (2nd)
             // Position of the second element in the set
             secondTerm = sortedDataList.get((int) secondTerm);
 
@@ -161,7 +184,6 @@ public class Statistics extends StatisticsConstructor {
     // Variance
     public static double getVar() {
         double xElement, varSum = 0, variance;
-
         // Iterates through the unsorted data list
         for (Double element : dataList) {
             // Gets the element
@@ -178,11 +200,35 @@ public class Statistics extends StatisticsConstructor {
         return variance;
     }
 
+    public static double getVar(List<Double> data) {
+        double xElement, varSum = 0, variance;
+        // Iterates through the unsorted data list
+        for (Double element : data) {
+            // Gets the element
+            // Subtracts the element from the mean
+            // Differences is squared
+            xElement = pow(element - getMean(data), 2);
+            // Sum of the xElement
+            varSum += xElement;
+        }
+
+        // Variance
+        variance = varSum / (data.size() - 1);
+
+        return variance;
+    }
+
     // Standard Deviation
     public static double getStnDev() {
         double stnDev;
-
         stnDev = sqrt(getVar());
+
+        return stnDev;
+    }
+
+    public static double getStnDev(List<Double> data) {
+        double stnDev;
+        stnDev = sqrt(getVar(data));
 
         return stnDev;
     }

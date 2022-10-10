@@ -2,15 +2,18 @@
  * This controller class controls the inputs and outputs of the correlation page
  * */
 
-package controllers;
+package controllers.statistics;
 
-import functions.StatisticsRegression;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.TextAreaConverter;
-import main.TextClearField;
+
+import static controllers.text.TextFieldSetter.*;
+import static controllers.text.TextAreaConverter.*;
+import controllers.text.TextClearField;
+
+import model.statistics.StatisticsRegression;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +29,11 @@ public class CorrelationController {
     // Correlation
     public void onButtonActionCalculateCorrelation(ActionEvent event) {
         // Takes 2 dataSets
-        data1 = TextAreaConverter.getTextAreaData(textAreaData1.getText());
-        data2 = TextAreaConverter.getTextAreaData(textAreaData2.getText());
+        data1 = getTextAreaData(textAreaData1.getText());
+        data2 = getTextAreaData(textAreaData2.getText());
 
         StatisticsRegression correlation = new StatisticsRegression(data1, data2);
-        textFieldCorrelation.setText(String.valueOf(correlation.getCorrelation()));
+        setTextField(textFieldCorrelation, correlation.getCorrelation());
     }
 
     // Clears all fields of correlation

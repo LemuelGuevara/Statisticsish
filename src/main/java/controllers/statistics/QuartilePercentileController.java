@@ -2,16 +2,18 @@
  * This controller class controls the inputs and outputs of the quartiles page
  * */
 
-package controllers;
+package controllers.statistics;
 
-import functions.StatisticsQuartilePercentile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.TextAreaConverter;
-import main.TextClearField;
-import functions.Statistics;
+
+import static controllers.text.TextFieldSetter.*;
+import static controllers.text.TextAreaConverter.*;
+import controllers.text.TextClearField;
+
+import model.statistics.StatisticsQuartilePercentile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +32,12 @@ public class QuartilePercentileController {
     // Quartile
     public void onButtonActionCalculateQuart(ActionEvent event) {
         // Takes a dataSet
-        dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
+        dataSet = getTextAreaData(textAreaData.getText());
         StatisticsQuartilePercentile quartiles = new StatisticsQuartilePercentile(dataSet);
 
-        textFieldQuart1.setText(String.valueOf(quartiles.getQuart1()));
-        textFieldQuart2.setText(String.valueOf(quartiles.getQuart2()));
-        textFieldQuart3.setText(String.valueOf(quartiles.getQuart3()));
+        setTextField(textFieldQuart1, quartiles.getQuart1());
+        setTextField(textFieldQuart2, quartiles.getQuart2());
+        setTextField(textFieldQuart3, quartiles.getQuart3());
     }
 
     // Clears all textFields of the quartiles
@@ -51,10 +53,10 @@ public class QuartilePercentileController {
     // Percentile
     public void onButtonActionCalculatePerct() {
         // Takes a textField
-        dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
+        dataSet = getTextAreaData(textAreaData.getText());
         StatisticsQuartilePercentile percentile = new StatisticsQuartilePercentile(dataSet, textFieldPercentileInput);
 
-        textFieldPercentileValue.setText(String.valueOf(percentile.getPercentile()));
+        setTextField(textFieldPercentileValue, percentile.getPercentile());
     }
 
     // Clears all the textFields of the percentiles

@@ -3,15 +3,19 @@
  * It contains the stage switching and the general page
  * */
 
-package controllers;
+package controllers.statistics;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import functions.Statistics;
-import main.*;
+
+import static controllers.text.TextFieldSetter.*;
+import static controllers.text.TextAreaConverter.*;
+import controllers.text.TextClearField;
+import model.statistics.StatisticsArithmetic;
+
+import static model.statistics.StatisticsArithmetic.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,27 +33,26 @@ public class GeneralController {
     @FXML private TextField textFieldVariance;
     @FXML private TextField textFieldStnDev;
 
-    @FXML private VBox contentArea;
-
     List<Double> data;
     List<TextField> textFieldsList = new ArrayList<>();
 
     // Calculates the statistics functions
     public void onButtonActionCalculate(ActionEvent event) {
         // Takes a dataSet
-        data = TextAreaConverter.getTextAreaData(textAreaData.getText());
+        data = getTextAreaData(textAreaData.getText());
 
-        Statistics genCalc = new Statistics(data);
-        textFieldCount.setText(String.valueOf(genCalc.count));
-        textFieldSum.setText(String.valueOf(genCalc.getSum()));
-        textFieldMean.setText(String.valueOf(genCalc.getMean()));
-        textFieldMedian.setText(String.valueOf(genCalc.getMedian()));
-        textFieldMode.setText(String.valueOf(genCalc.getMode()));
-        textFieldMax.setText(String.valueOf(genCalc.getMax()));
-        textFieldMin.setText(String.valueOf(genCalc.getMin()));
-        textFieldRange.setText(String.valueOf(genCalc.getRange()));
-        textFieldVariance.setText(String.valueOf(genCalc.getVar()));
-        textFieldStnDev.setText(String.valueOf(genCalc.getStnDev()));
+        StatisticsArithmetic stats =  new StatisticsArithmetic(data);
+
+        setTextField(textFieldCount, getCount());
+        setTextField(textFieldSum, getSum());
+        setTextField(textFieldMean, getMean());
+        setTextField(textFieldMedian, getMedian());
+        setTextField(textFieldMode, getMode());
+        setTextField(textFieldMax, getMax());
+        setTextField(textFieldMin, getMin());
+        setTextField(textFieldRange, getRange());
+        setTextField(textFieldVariance, getVar());
+        setTextField(textFieldStnDev, getStnDev());
     }
 
     // Clears all textFields and textArea

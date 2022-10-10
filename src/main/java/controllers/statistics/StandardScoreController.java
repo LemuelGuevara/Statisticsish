@@ -2,15 +2,20 @@
  * This controller class controls the inputs and outputs of the z-score page
  * */
 
-package controllers;
+package controllers.statistics;
 
-import functions.StatisticsStandardScore;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.TextAreaConverter;
-import main.TextClearField;
+
+import static controllers.text.TextFieldSetter.*;
+import static controllers.text.TextAreaConverter.*;
+import controllers.text.TextClearField;
+import model.statistics.StatisticsStandardScore;
+
+import static model.statistics.StatisticsArithmetic.*;
+import static model.statistics.StatisticsStandardScore.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +38,12 @@ public class StandardScoreController {
     // If data set is given
     public void onButtonActionCalculate(ActionEvent event) {
         // Takes a dataSet and 1 textField
-        dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        StatisticsStandardScore zScore = new StatisticsStandardScore(dataSet, textFieldXInput1);
+        dataSet = getTextAreaData(textAreaData.getText());
+        new StatisticsStandardScore(dataSet, textFieldXInput1);
 
-        textFieldPopMeanGiven.setText(String.valueOf(zScore.getMean()));
-        textFieldStnDevGiven.setText(String.valueOf(zScore.getStnDev()));
-        textFieldZScore1.setText(String.valueOf(zScore.getZscoreGiven()));
-
+        setTextField(textFieldPopMeanGiven, getMean(dataSet));
+        setTextField(textFieldStnDevGiven, getStnDev(dataSet));
+        setTextField(textFieldZScore1, standardScore);
     }
 
     // Clears the first section of the z-score page(upper)
@@ -56,13 +60,10 @@ public class StandardScoreController {
     // If data set is not given
     public void onButtonActionCalculateZScore(ActionEvent event) {
         // Takes textFields instead of textAreas
-        dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
+        dataSet = getTextAreaData(textAreaData.getText());
         StatisticsStandardScore zScore = new StatisticsStandardScore(textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
 
-        textFieldXInput2.setText(String.valueOf(zScore.getXValueZ()));
-        textFieldPopMeanInput.setText(String.valueOf(zScore.getPopMeanZ()));
-        textFieldStnDevInput.setText(String.valueOf(zScore.getStandardDeviationZ()));
-        textFieldZScore2.setText(String.valueOf(zScore.getZScore()));
+        setTextField(textFieldZScore2, zScore.getStandardScore());
     }
 
     // Clears all textFields of second section of the z-score page(lower)

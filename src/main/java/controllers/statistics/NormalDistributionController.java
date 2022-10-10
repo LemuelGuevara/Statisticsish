@@ -1,12 +1,17 @@
-package controllers;
+package controllers.statistics;
 
-import functions.StatisticsNormalDistribution;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.TextAreaConverter;
-import main.TextClearField;
+
+import static controllers.text.TextFieldSetter.*;
+import static controllers.text.TextAreaConverter.*;
+import controllers.text.TextClearField;
+
+import static model.statistics.StatisticsArithmetic.*;
+import model.statistics.StatisticsNormalDistribution;
+import static model.statistics.StatisticsNormalDistribution.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +34,12 @@ public class NormalDistributionController {
     // If data set is given
     public void onButtonActionCalculate(ActionEvent event) {
         // Takes a dataSet and 1 textField
-        dataSet = TextAreaConverter.getTextAreaData(textAreaData.getText());
-        StatisticsNormalDistribution normalDist = new StatisticsNormalDistribution(dataSet, textFieldXInput1);
+        dataSet = getTextAreaData(textAreaData.getText());
+        new StatisticsNormalDistribution(dataSet, textFieldXInput1);
 
-        textFieldPopMeanGiven.setText(String.valueOf(normalDist.getMean()));
-        textFieldStnDevGiven.setText(String.valueOf(normalDist.getStnDev()));
-        textFieldNormalDist1.setText(String.valueOf(normalDist.getNormalDist()));
+        setTextField(textFieldPopMeanGiven, getMean(dataSet));
+        setTextField(textFieldStnDevGiven, getStnDev(dataSet));
+        setTextField(textFieldNormalDist1, normalDist);
     }
 
     // Clears the first section of the z-score page(upper)
@@ -53,9 +58,7 @@ public class NormalDistributionController {
         // Takes textFields instead of textAreas
         StatisticsNormalDistribution normalDist = new StatisticsNormalDistribution(textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
 
-        textFieldPopMeanInput.setText(String.valueOf(normalDist.getPopMeanZ()));
-        textFieldStnDevInput.setText(String.valueOf(normalDist.getStandardDeviationZ()));
-        textFieldNormalDist2.setText(String.valueOf(normalDist.getNormalDist()));
+        setTextField(textFieldNormalDist2, normalDist.getNormalDist());
     }
 
     // Clears all textFields of second section of the z-score page(lower)

@@ -69,7 +69,7 @@
             </VBox.margin>
             <children>
                 <Label prefHeight="89.0" prefWidth="477.0" text="Count:" />
-                <TextField fx:id="textFieldCount" GridPane.columnIndex="1" />
+                <TextField fx:id="textFieldCount" editable="false" GridPane.columnIndex="1" />
                 <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="Sum:" GridPane.rowIndex="1" />
                 <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Mean:" GridPane.rowIndex="2" />
                 <Label layoutX="10.0" layoutY="100.0" prefHeight="89.0" prefWidth="477.0" text="Median:" GridPane.rowIndex="3" />
@@ -79,15 +79,15 @@
                 <Label layoutX="10.0" layoutY="280.0" prefHeight="89.0" prefWidth="477.0" text="Range:" GridPane.rowIndex="7" />
                 <Label layoutX="10.0" layoutY="325.0" prefHeight="89.0" prefWidth="477.0" text="Variance:" GridPane.rowIndex="8" />
                 <Label layoutX="10.0" layoutY="369.0" prefHeight="44.0" prefWidth="153.0" text="Standard Deviation:" GridPane.rowIndex="9" />
-                <TextField fx:id="textFieldSum" layoutX="91.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField fx:id="textFieldMean" layoutX="91.0" layoutY="65.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="textFieldMedian" layoutX="91.0" layoutY="110.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField fx:id="textFieldMode" layoutX="91.0" layoutY="155.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField fx:id="textFieldMax" layoutX="91.0" layoutY="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <TextField fx:id="textFieldMin" layoutX="91.0" layoutY="245.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <TextField fx:id="textFieldRange" layoutX="91.0" layoutY="290.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                <TextField fx:id="textFieldVariance" layoutX="91.0" layoutY="334.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                <TextField fx:id="textFieldStnDev" layoutX="91.0" layoutY="378.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <TextField fx:id="textFieldSum" editable="false" layoutX="91.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="textFieldMean" editable="false" layoutX="91.0" layoutY="65.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="textFieldMedian" editable="false" layoutX="91.0" layoutY="110.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="textFieldMode" editable="false" layoutX="91.0" layoutY="155.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="textFieldMax" editable="false" layoutX="91.0" layoutY="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="textFieldMin" editable="false" layoutX="91.0" layoutY="245.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="textFieldRange" editable="false" layoutX="91.0" layoutY="290.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <TextField fx:id="textFieldVariance" editable="false" layoutX="91.0" layoutY="334.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <TextField fx:id="textFieldStnDev" editable="false" layoutX="91.0" layoutY="378.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             </children>
         </GridPane>
     </children>

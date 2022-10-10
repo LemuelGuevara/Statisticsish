@@ -11,6 +11,8 @@ public abstract class StatisticsConstructor {
     List<Double> dataListX;
     List<Double> dataListY;
 
+    static int count;
+
     public StatisticsConstructor() {
     }
 
@@ -18,10 +20,10 @@ public abstract class StatisticsConstructor {
         StatisticsConstructor.dataList = dataList;
     }
 
-//    public StatisticsConstructor(List<Double> dataList, TextField textField0) {
-//        StatisticsConstructor.dataList = dataList;
-//        this.textField0 = textField0;
-//    }
+    public StatisticsConstructor(List<Double> dataList, TextField textField) {
+        StatisticsConstructor.dataList = dataList;
+        this.textField = textField;
+    }
 
     public StatisticsConstructor(List<Double> dataListX, List<Double> dataListY) {
         this.dataListX = dataListX;

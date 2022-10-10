@@ -1,14 +1,13 @@
-package functions;
+package model.statistics;
 
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
 
-public class StatisticsRegression extends Statistics {
+public class StatisticsRegression extends StatisticsConstructor {
     double correlation, sumX, sumY, countX, countY, yElement = 0, productXY = 0;
     double xSquare, ySquare, xSquareSum, ySquareSum;
     double linearRegression, regressionSlope, regressionYIntercept, xElement;
@@ -62,12 +61,12 @@ public class StatisticsRegression extends Statistics {
         }
 
         // Sum of x and y square
-        xSquareSum = getSum(dataListXSquare);
-        ySquareSum = getSum(dataListYSquare);
+        xSquareSum = StatisticsArithmetic.getSum(dataListXSquare);
+        ySquareSum = StatisticsArithmetic.getSum(dataListYSquare);
 
         // Sum of the raw data list
-        sumX = getSum(dataListX);
-        sumY = getSum(dataListY);
+        sumX = StatisticsArithmetic.getSum(dataListX);
+        sumY = StatisticsArithmetic.getSum(dataListY);
     }
 
     // Correlation

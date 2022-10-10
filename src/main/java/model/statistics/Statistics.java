@@ -3,14 +3,12 @@
 * linear regression.
 * */
 
-package statistics;
-
-import javafx.scene.control.TextField;
+package model.statistics;
 
 import java.util.*;
 import static java.lang.Math.*;
 
-public class Statistics extends DataTypes {
+public class Statistics extends StatisticsConstructor {
 
     // Lists
 
@@ -18,8 +16,9 @@ public class Statistics extends DataTypes {
     static Map<Double, Integer> dataListCount = new HashMap<>();
 
     // Doubles
-    public double count, median;
-    double maxElement, minElement;
+    public static double count, median;
+    static double maxElement;
+    static double minElement;
 
     /*
      * Constructor that only asks for a list (textArea)
@@ -46,42 +45,6 @@ public class Statistics extends DataTypes {
         }
     }
 
-    /*
-     * Constructor that asks for 2 lists
-     *
-     * @param dataListX = textArea1 input1
-     * @param dataListY = textArea2 input2
-     * */
-    public Statistics(List<Double> dataListX, List<Double> dataListY) {
-        super(dataListX, dataListY);
-    }
-
-    /*
-     * Constructor that asks for 2 lists and a textField
-     *
-     * @param dataListX = textArea1 input1
-     * @param dataListY = textArea2 input2
-     * @param textField = textField input
-     * */
-    public Statistics(List<Double> dataListX, List<Double> dataListY, TextField textField) {
-        super(dataListX, dataListY, textField);
-    }
-
-    /*
-     * Constructor that asks for 3 textFields
-     *
-     * @param textField1 = textField1 input1
-     * @param textField2 = textField2 input2
-     * @param textField3 = textField3 input3
-     * */
-    public Statistics(TextField textField1, TextField textField2, TextField textField3) {
-        super(textField1, textField2, textField3);
-    }
-
-    /*
-     * Non-statistics functions
-     * */
-
     // For rounding off values to 2 digits
     public static double roundOff(double value) {
         return round(value * 100.0) / 100.0;
@@ -93,7 +56,7 @@ public class Statistics extends DataTypes {
      * */
 
     // Sum
-    public double getSum() {
+    public static double getSum() {
         double sum = 0;
         // Gets sum by iterating within the list
         // Rounds of the sum by 2 decimals
@@ -104,7 +67,7 @@ public class Statistics extends DataTypes {
         return sum;
     }
 
-    public double getSum(List<Double> dataListCorrel) {
+    public static double getSum(List<Double> dataListCorrel) {
         double sum = 0;
         // Gets sum by iterating within the list
         // Rounds of the sum by 2 decimals
@@ -116,7 +79,7 @@ public class Statistics extends DataTypes {
     }
 
     // Mean
-    public double getMean() {
+    public static double getMean() {
         double mean;
 
         mean = getSum() / count;
@@ -124,16 +87,8 @@ public class Statistics extends DataTypes {
         return mean;
     }
 
-    public double getMean(List<Double> dataListCorrel) {
-        double mean;
-
-        mean = getSum(dataListCorrel) / dataListCorrel.size();
-        mean = roundOff(mean);
-        return mean;
-    }
-
     // Median
-    public double getMedian() {
+    public static double getMedian() {
         // If count is not even
         if (count % 2 != 0) {
             median = (count + 1) / 2;
@@ -158,7 +113,7 @@ public class Statistics extends DataTypes {
     }
 
     // Mode
-    public double getMode() {
+    public static double getMode() {
         double result = -1;
         int frequency = -1;
 
@@ -187,24 +142,24 @@ public class Statistics extends DataTypes {
     }
 
     // Max
-    public double getMax() {
+    public static double getMax() {
         maxElement = Collections.max(dataList);
         return maxElement;
     }
 
     // Min
-    public double getMin() {
+    public static double getMin() {
         minElement = Collections.min(dataList);
         return minElement;
     }
 
     // Range
-    public double getRange() {
+    public static double getRange() {
         return getMax() - getMin();
     }
 
     // Variance
-    public double getVar() {
+    public static double getVar() {
         double xElement, varSum = 0, variance;
 
         // Iterates through the unsorted data list
@@ -224,7 +179,7 @@ public class Statistics extends DataTypes {
     }
 
     // Standard Deviation
-    public double getStnDev() {
+    public static double getStnDev() {
         double stnDev;
 
         stnDev = sqrt(getVar());

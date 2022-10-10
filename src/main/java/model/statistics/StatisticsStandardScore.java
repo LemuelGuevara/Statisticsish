@@ -14,11 +14,10 @@ public class StatisticsStandardScore extends StatisticsConstructor {
      * @param dataList = textArea input
      * @param zsScoreX1 = textField input
      * */
-    public StatisticsStandardScore(List<Double> dataList, TextField xInput) {
-        super(dataList);
-        this.xInput = xInput;
+    public StatisticsStandardScore(List<Double> dataList, TextField textField) {
+        super(dataList, textField);
 
-        xValue = Double.parseDouble(xInput.getText());
+        xValue = Double.parseDouble(textField.getText());
         standardScore = (xValue - StatisticsArithmetic.getMean(dataList)) / StatisticsArithmetic.getStnDev(dataList);
     }
 

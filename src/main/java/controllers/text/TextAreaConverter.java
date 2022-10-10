@@ -3,7 +3,7 @@
 * It then puts it on a list
 * */
 
-package main;
+package controllers.text;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -2,7 +2,7 @@
 * This class is used for clearing all text fields e.g. textArea and textField
 * */
 
-package main;
+package controllers.text;
 
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;

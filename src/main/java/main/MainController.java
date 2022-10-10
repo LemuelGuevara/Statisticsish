@@ -5,7 +5,6 @@
 
 package main;
 
-import controllers.text.TextAreaConverter;
 import controllers.text.TextClearField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +19,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static controllers.text.TextAreaConverter.getTextAreaData;
 import static controllers.text.TextFieldSetter.setTextField;
+import static model.statistics.StatisticsArithmetic.*;
+import static model.statistics.StatisticsArithmetic.getStnDev;
 
 public class MainController {
     @FXML private TextArea textAreaData;
@@ -43,20 +45,20 @@ public class MainController {
     // Calculates the statistics functions
     public void onButtonActionCalculate(ActionEvent event) {
         // Takes a dataSet
-        data = TextAreaConverter.getTextAreaData(textAreaData.getText());
+        data = getTextAreaData(textAreaData.getText());
 
-        StatisticsArithmetic stats = new StatisticsArithmetic(data);
+        new StatisticsArithmetic(data);
 
-        setTextField(textFieldCount, StatisticsArithmetic.getCount());
-        setTextField(textFieldSum, StatisticsArithmetic.getSum());
-        setTextField(textFieldMean, StatisticsArithmetic.getMean());
-        setTextField(textFieldMedian, StatisticsArithmetic.getMedian());
-        setTextField(textFieldMode, StatisticsArithmetic.getMode());
-        setTextField(textFieldMax, StatisticsArithmetic.getMax());
-        setTextField(textFieldMin, StatisticsArithmetic.getMin());
-        setTextField(textFieldRange, StatisticsArithmetic.getRange());
-        setTextField(textFieldVariance, stats.getVar());
-        setTextField(textFieldStnDev, stats.getStnDev());
+        setTextField(textFieldCount, getCount());
+        setTextField(textFieldSum, getSum());
+        setTextField(textFieldMean, getMean());
+        setTextField(textFieldMedian, getMedian());
+        setTextField(textFieldMode, getMode());
+        setTextField(textFieldMax, getMax());
+        setTextField(textFieldMin, getMin());
+        setTextField(textFieldRange, getRange());
+        setTextField(textFieldVariance, getVar());
+        setTextField(textFieldStnDev, getStnDev());
     }
 
     // Clears all textFields and textArea

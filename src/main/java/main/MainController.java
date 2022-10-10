@@ -5,6 +5,8 @@
 
 package main;
 
+import controllers.text.TextAreaConverter;
+import controllers.text.TextClearField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,11 +14,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import functions.Statistics;
+import model.statistics.StatisticsArithmetic;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static controllers.text.TextFieldSetter.setTextField;
 
 public class MainController {
     @FXML private TextArea textAreaData;
@@ -41,17 +45,20 @@ public class MainController {
         // Takes a dataSet
         data = TextAreaConverter.getTextAreaData(textAreaData.getText());
 
-        Statistics genCalc = new Statistics(data);
-        textFieldCount.setText(String.valueOf(genCalc.count));
-        textFieldSum.setText(String.valueOf(genCalc.getSum()));
-        textFieldMean.setText(String.valueOf(genCalc.getMean()));
-        textFieldMedian.setText(String.valueOf(genCalc.getMedian()));
-        textFieldMode.setText(String.valueOf(genCalc.getMode()));
-        textFieldMax.setText(String.valueOf(genCalc.getMax()));
-        textFieldMin.setText(String.valueOf(genCalc.getMin()));
-        textFieldRange.setText(String.valueOf(genCalc.getRange()));
-        textFieldVariance.setText(String.valueOf(genCalc.getVar()));
-        textFieldStnDev.setText(String.valueOf(genCalc.getStnDev()));
+        StatisticsArithmetic stats = new StatisticsArithmetic(data);
+
+        setTextField(textFieldCount, StatisticsArithmetic.getCount());
+        setTextField(textFieldSum, StatisticsArithmetic.getSum());
+        setTextField(textFieldMean, StatisticsArithmetic.getMean());
+        setTextField(textFieldMedian, StatisticsArithmetic.getMedian());
+        setTextField(textFieldMode, StatisticsArithmetic.getMode());
+        setTextField(textFieldMax, StatisticsArithmetic.getMax());
+        setTextField(textFieldMin, StatisticsArithmetic.getMin());
+        setTextField(textFieldRange, StatisticsArithmetic.getRange());
+//        setTextField(textFieldVariance, stats.getVar());
+//        setTextField(textFieldStnDev, stats.getStnDev());
+        System.out.println(StatisticsArithmetic.getSum());
+        System.out.println(stats.getStnDev());
     }
 
     // Clears all textFields and textArea

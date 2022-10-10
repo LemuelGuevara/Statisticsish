@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import static controllers.text.TextFieldSetter.*;
-import static controllers.text.TextAreaConverter.*;
+import static controllers.text.TextAreaGetter.*;
 import controllers.text.TextClearField;
 
 import static model.statistics.StatisticsArithmetic.*;

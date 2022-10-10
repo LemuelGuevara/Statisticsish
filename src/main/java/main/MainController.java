@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static controllers.text.TextAreaConverter.getTextAreaData;
+import static controllers.text.TextAreaGetter.getTextAreaData;
 import static controllers.text.TextFieldSetter.setTextField;
 import static model.statistics.StatisticsArithmetic.*;
 import static model.statistics.StatisticsArithmetic.getStnDev;

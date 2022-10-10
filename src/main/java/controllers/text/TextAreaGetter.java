@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TextAreaConverter {
+public class TextAreaGetter {
     public static List<Double> getTextAreaData(String textAreaInput) {
         // textArea array list
         ArrayList<String> textAreaArray = new ArrayList<>();

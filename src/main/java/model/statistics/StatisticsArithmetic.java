@@ -1,6 +1,5 @@
 /*
-* This class is where all functions in statistics are constructed. Ranging from mean to
-* linear regression.
+* This class is all basic arithmetic statistics
 * */
 
 package model.statistics;
@@ -62,8 +61,8 @@ public class StatisticsArithmetic extends StatisticsConstructor {
     }
 
     // Count
-    public static double getCount(List<Double> data) {
-        count = data.size();
+    public static double getCount(List<Double> list) {
+        count = list.size();
 
         return count;
     }
@@ -80,6 +79,7 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         return sum;
     }
 
+    // Sum (list)
     public static double getSum(List<Double> data) {
         double sum = 0;
         // Gets sum by iterating within the list
@@ -100,11 +100,11 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         return mean;
     }
 
-    // Mean
-    public static double getMean(List<Double> data) {
+    // Mean (list)
+    public static double getMean(List<Double> list) {
         double mean;
 
-        mean = getSum(data) / data.size();
+        mean = getSum(list) / list.size();
         mean = roundOff(mean);
         return mean;
     }
@@ -200,20 +200,21 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         return variance;
     }
 
-    public static double getVar(List<Double> data) {
+    // Variance (list)
+    public static double getVar(List<Double> list) {
         double xElement, varSum = 0, variance;
-        // Iterates through the unsorted data list
-        for (Double element : data) {
+        // Iterates through the unsorted list
+        for (Double element : list) {
             // Gets the element
             // Subtracts the element from the mean
             // Differences is squared
-            xElement = pow(element - getMean(data), 2);
+            xElement = pow(element - getMean(list), 2);
             // Sum of the xElement
             varSum += xElement;
         }
 
         // Variance
-        variance = varSum / (data.size() - 1);
+        variance = varSum / (list.size() - 1);
 
         return variance;
     }
@@ -226,9 +227,10 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         return stnDev;
     }
 
-    public static double getStnDev(List<Double> data) {
+    // Standard deviation (list)
+    public static double getStnDev(List<Double> list) {
         double stnDev;
-        stnDev = sqrt(getVar(data));
+        stnDev = sqrt(getVar(list));
 
         return stnDev;
     }

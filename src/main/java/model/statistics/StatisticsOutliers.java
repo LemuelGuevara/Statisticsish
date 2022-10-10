@@ -1,8 +1,8 @@
-package functions;
+package model.statistics;
 
 import java.util.List;
 
-public class StatisticsOutliers extends StatisticsQuartilePercentile{
+public class StatisticsOutliers extends StatisticsQuartilePercentile {
     double lowerBound, upperBound;
 
     // Constructors that passes in a list from the quartile/percentile class

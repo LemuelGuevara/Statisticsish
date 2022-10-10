@@ -55,10 +55,8 @@ public class MainController {
         setTextField(textFieldMax, StatisticsArithmetic.getMax());
         setTextField(textFieldMin, StatisticsArithmetic.getMin());
         setTextField(textFieldRange, StatisticsArithmetic.getRange());
-//        setTextField(textFieldVariance, stats.getVar());
-//        setTextField(textFieldStnDev, stats.getStnDev());
-        System.out.println(StatisticsArithmetic.getSum());
-        System.out.println(stats.getStnDev());
+        setTextField(textFieldVariance, stats.getVar());
+        setTextField(textFieldStnDev, stats.getStnDev());
     }
 
     // Clears all textFields and textArea

@@ -1,18 +1,17 @@
-package functions;
+package model.statistics;
 
 import javafx.scene.control.TextField;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class StatisticsQuartilePercentile extends Statistics{
+public class StatisticsQuartilePercentile extends StatisticsConstructor {
+    TextField percentileValue;
     public double quart1, quart2, quart3, percentile;
 
     /*
     * Constructor that has no parameters
     * */
-    public StatisticsQuartilePercentile() {
-    }
 
     /*
     * Constructor asks for a list
@@ -22,6 +21,7 @@ public class StatisticsQuartilePercentile extends Statistics{
     public StatisticsQuartilePercentile(List<Double> dataList) {
         // Inherits the dataList from the dataTypes class
         super(dataList);
+        count = dataList.size();
     }
 
     /*
@@ -33,6 +33,7 @@ public class StatisticsQuartilePercentile extends Statistics{
     public StatisticsQuartilePercentile(List<Double> dataList, TextField textField) {
         // Inherits the dataList from the dataTypes class
         super(dataList, textField);
+        count = dataList.size();
     }
 
     // Checks if quartile or percentile nth has a remainder
@@ -82,7 +83,7 @@ public class StatisticsQuartilePercentile extends Statistics{
 
     // Percentile
     public double getPercentile() {
-        percentile = (Double.parseDouble(String.valueOf(textField.getText())) / 100) * (count + 1);
+        percentile = (Double.parseDouble(textField.getText()) / 100) * (StatisticsArithmetic.count + 1);
         percentile = checkQuartPercentile(percentile);
 
         return percentile;

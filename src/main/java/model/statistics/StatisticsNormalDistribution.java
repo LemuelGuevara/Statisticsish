@@ -8,11 +8,13 @@ import static java.lang.Math.*;
 public class StatisticsNormalDistribution extends StatisticsStandardScore {
     public static double normalDist;
 
-    public StatisticsNormalDistribution(List<Double> dataList, TextField xInput) {
-        super(dataList, xInput);
+    public StatisticsNormalDistribution(List<Double> dataList, TextField textField) {
+        super(dataList, textField);
 
-        xValue = Double.parseDouble(xInput.getText());
-        normalDist =  exp(((-1 * pow(xValue - Statistics.getMean(), 2)) / (2 * pow(Statistics.getStnDev(), 2)))) / Statistics.getStnDev() * sqrt(2 * PI);
+        xValue = Double.parseDouble(textField.getText());
+        normalDist =  exp(((-1 * pow(xValue - StatisticsArithmetic.getMean(dataList), 2)) /
+                (2 * pow(StatisticsArithmetic.getStnDev(), 2)))) /
+                StatisticsArithmetic.getStnDev(dataList) * sqrt(2 * PI);
     }
 
     public StatisticsNormalDistribution(TextField textField1, TextField textField2, TextField textField3) {

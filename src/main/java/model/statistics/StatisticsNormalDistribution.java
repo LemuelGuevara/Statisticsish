@@ -51,6 +51,7 @@ public class StatisticsNormalDistribution extends StatisticsConstructor {
 
     // Gets the cumulative area
     public double getCumulative(TextField textField) {
+        zValueCumul = Double.parseDouble(textField.getText());
         cumulative = normalDist.cumulativeProbability(zValueCumul);
 
         return roundOff(cumulative, 4);

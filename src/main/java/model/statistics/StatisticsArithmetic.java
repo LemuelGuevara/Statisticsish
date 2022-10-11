@@ -17,6 +17,7 @@ public class StatisticsArithmetic extends StatisticsConstructor {
     // Doubles
     static double maxElement;
     static double minElement;
+    static double roundedValue;
 
     /*
      * Constructor that only asks for a list (textArea)
@@ -44,8 +45,15 @@ public class StatisticsArithmetic extends StatisticsConstructor {
     }
 
     // For rounding off values to 2 digits
-    public static double roundOff(double value) {
-        return round(value * 100.0) / 100.0;
+    public static double roundOff(double value, int sigFigures) {
+
+        switch (sigFigures) {
+            case 1 -> roundedValue = (double) round(value * 10) / 10;
+            case 2 -> roundedValue = (double) round(value * 100) / 100;
+            case 3 -> roundedValue = (double) round(value * 1000) / 1000;
+            case 4 -> roundedValue = (double) round(value * 10000) / 10000;
+        }
+        return roundedValue;
     }
 
     /*
@@ -74,7 +82,7 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         // Rounds of the sum by 2 decimals
         for (Double element : dataList) {
             sum += element;
-            sum = roundOff(sum);
+            sum = roundOff(sum, 2);
         }
         return sum;
     }
@@ -86,7 +94,7 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         // Rounds of the sum by 2 decimals
         for (Double element : data) {
             sum += element;
-            sum = roundOff(sum);
+            sum = roundOff(sum, 2);
         }
         return sum;
     }
@@ -96,7 +104,7 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         double mean;
 
         mean = getSum() / count;
-        mean = roundOff(mean);
+        mean = roundOff(mean, 2);
         return mean;
     }
 
@@ -105,7 +113,7 @@ public class StatisticsArithmetic extends StatisticsConstructor {
         double mean;
 
         mean = getSum(list) / list.size();
-        mean = roundOff(mean);
+        mean = roundOff(mean, 2);
         return mean;
     }
 

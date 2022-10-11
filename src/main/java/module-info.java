@@ -6,6 +6,7 @@ module main {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires commons.math3;
 
     exports main;
     opens main to javafx.fxml;

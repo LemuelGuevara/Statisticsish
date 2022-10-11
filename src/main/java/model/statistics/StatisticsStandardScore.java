@@ -5,7 +5,6 @@ import javafx.scene.control.TextField;
 import java.util.List;
 
 public class StatisticsStandardScore extends StatisticsConstructor {
-    TextField xInput;
     public static double xValue, standardScore, populationMeanInput, standardDeviationInput;
 
     /*
@@ -21,35 +20,26 @@ public class StatisticsStandardScore extends StatisticsConstructor {
         standardScore = (xValue - StatisticsArithmetic.getMean(dataList)) / StatisticsArithmetic.getStnDev(dataList);
     }
 
-    /*
-     * Constructor that asks for a list and a double value
-     *
-     * @param dataList = textArea input
-     * @param xInput2 = textField input1
-     * @param popMean = texField input 2
-     * @param stnDeviation = textField 3
-     * */
-    public StatisticsStandardScore(TextField textField1, TextField textField2, TextField textField3) {
-        super(textField1, textField2, textField3);
-
-        xValue = Double.parseDouble(String.valueOf(textField1.getText()));
-        populationMeanInput = Double.parseDouble(String.valueOf(textField2.getText()));
-        standardDeviationInput = Double.parseDouble(String.valueOf(textField3.getText()));
-    }
-
-    /* If dataset is given */
-
-//    public double getStandScore() {
-//        xValue = Double.parseDouble(String.valueOf(xInput1.getText()));
-//        zScore = (xValue - Statistics.getMean()) / Statistics.getStnDev();
-//
-//        return zScore;
-//    }
-
     /* If dataset is not given */
+
+    /*
+     * Constructor that asks for 3 textFields
+     *
+     * @param xInput2 = textField input1
+     * @param popMean = texField input2
+     * @param stnDeviation = textField3
+     * */
+    public StatisticsStandardScore(TextField textField, TextField textField2, TextField textField3) {
+        super(textField);
+
+        xValue = Double.parseDouble(textField.getText());
+        populationMeanInput = Double.parseDouble(textField2.getText());
+        standardDeviationInput = Double.parseDouble(textField3.getText());
+    }
 
     // Z-Score
     public double getStandardScore() {
+
         standardScore = (xValue - populationMeanInput) / standardDeviationInput;
 
         return standardScore;

@@ -16,26 +16,56 @@ public abstract class StatisticsConstructor {
     public StatisticsConstructor() {
     }
 
+    /*
+     * Constructor that asks for a list and a double value
+     *
+     * @param dataList = textArea input
+     * @param zsScoreX1 = textField input
+     * */
     public StatisticsConstructor(List<Double> dataList) {
         StatisticsConstructor.dataList = dataList;
     }
 
+    /*
+     * Constructor that asks for a list and a double value
+     *
+     * @param dataList = textArea input
+     * @param zsScoreX1 = textField input
+     * */
     public StatisticsConstructor(List<Double> dataList, TextField textField) {
         StatisticsConstructor.dataList = dataList;
         this.textField = textField;
     }
 
+    /*
+     * Constructor that asks for a list and a double value
+     *
+     * @param dataList = textArea input
+     * @param zsScoreX1 = textField input
+     * */
     public StatisticsConstructor(List<Double> dataListX, List<Double> dataListY) {
         this.dataListX = dataListX;
         this.dataListY = dataListY;
     }
 
-    public StatisticsConstructor(List<Double> dataListX, List<Double> dataListY, TextField textField0) {
+    /*
+     * Constructor that asks for a list and a double value
+     *
+     * @param dataList = textArea input
+     * @param zsScoreX1 = textField input
+     * */
+    public StatisticsConstructor(List<Double> dataListX, List<Double> dataListY, TextField textField) {
         this.dataListX = dataListX;
         this.dataListY = dataListY;
-        this.textField = textField0;
+        this.textField = textField;
     }
 
+    /*
+     * Constructor that asks for a list and a double value
+     *
+     * @param dataList = textArea input
+     * @param zsScoreX1 = textField input
+     * */
     public StatisticsConstructor(TextField textField1, TextField textField2, TextField textField3) {
         this.textField1 = textField1;
         this.textField2 = textField2;

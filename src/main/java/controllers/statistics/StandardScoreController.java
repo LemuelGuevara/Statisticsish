@@ -60,7 +60,6 @@ public class StandardScoreController {
     // If data set is not given
     public void onButtonActionCalculateZScore(ActionEvent event) {
         // Takes textFields instead of textAreas
-        dataSet = getTextAreaData(textAreaData.getText());
         StatisticsStandardScore zScore = new StatisticsStandardScore(textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
 
         setTextField(textFieldZScore2, zScore.getStandardScore());

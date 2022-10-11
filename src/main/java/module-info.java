@@ -7,6 +7,7 @@ module main {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires commons.math3;
+    requires java.base;
 
     exports main;
     opens main to javafx.fxml;

@@ -2,73 +2,72 @@ package controllers.statistics;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import static controllers.text.TextFieldSetter.*;
-import static controllers.text.TextAreaGetter.*;
-import controllers.text.TextClearField;
 
 import static model.statistics.StatisticsArithmetic.*;
 import model.statistics.StatisticsNormalDistribution;
-import static model.statistics.StatisticsNormalDistribution.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NormalDistributionController {
-    @FXML private TextArea textAreaData;
-    @FXML private TextField textFieldNormalDist1;
-    @FXML private TextField textFieldNormalDist2;
-    @FXML private TextField textFieldPopMeanGiven;
-    @FXML private TextField textFieldPopMeanInput;
-    @FXML private TextField textFieldStnDevGiven;
-    @FXML private TextField textFieldStnDevInput;
-    @FXML private TextField textFieldXInput1;
-    @FXML private TextField textFieldXInput2;
+    @FXML private TextField textFieldComul1;
+    @FXML private TextField textFieldComul2;
+    @FXML private TextField textFieldComul3;
+    @FXML private TextField textFieldComul4;
+    @FXML private TextField textFieldComul5;
+    @FXML private TextField textFieldZValue1;
+    @FXML private TextField textFieldZValue2;
+    @FXML private TextField textFieldZValue3;
+    @FXML private TextField textFieldZValue4;
+    @FXML private TextField textFieldAreaZValue1;
+    @FXML private TextField textFieldAreaZValue2;
+    @FXML private TextField textFieldXValue1;
+    @FXML private TextField textFieldXValue2;
+    @FXML private TextField textFieldMean1;
+    @FXML private TextField textFieldMean2;
+    @FXML private TextField textFieldStnDev1;
+    @FXML private TextField textFieldStndDev2;
 
-    List<TextField> normalDistFields1 = new ArrayList<>();
-    List<TextField> normalDistFields2 = new ArrayList<>();
-    List<Double> dataSet;
+    List<TextField> normalDistFields = new ArrayList<>();
 
-    // If data set is given
-    public void onButtonActionCalculate(ActionEvent event) {
-        // Takes a dataSet and 1 textField
-        dataSet = getTextAreaData(textAreaData.getText());
-        new StatisticsNormalDistribution(dataSet, textFieldXInput1);
+    /* Section with z-scores*/
 
-        setTextField(textFieldPopMeanGiven, getMean(dataSet));
-        setTextField(textFieldStnDevGiven, getStnDev(dataSet));
-        setTextField(textFieldNormalDist1, normalDist);
+    StatisticsNormalDistribution normalDist = new StatisticsNormalDistribution();
+
+    // Cumulative area
+    public void onButtonActionCalculate1(ActionEvent event) {
+        setTextField(textFieldComul1, normalDist.getCumulative(textFieldZValue1));
     }
 
-    // Clears the first section of the z-score page(upper)
-    public void onButtonActionClear(ActionEvent event) {
-        textFieldXInput1.clear();
-        normalDistFields1.add(textFieldPopMeanGiven);
-        normalDistFields1.add(textFieldStnDevGiven);
-        normalDistFields1.add(textFieldNormalDist1);
-
-        TextClearField clearField = new TextClearField();
-        clearField.clearField(textAreaData, normalDistFields1);
+    // Cumulative area compliment
+    public void onButtonActionCalculate2(ActionEvent event) {
+        setTextField(textFieldComul2, normalDist.getCumulativeCompliment(textFieldZValue2));
     }
 
-    // If data set is not given
-    public void onButtonActionCalculateNormalDist(ActionEvent event) {
-        // Takes textFields instead of textAreas
-        StatisticsNormalDistribution normalDist = new StatisticsNormalDistribution(textFieldXInput2, textFieldPopMeanInput, textFieldStnDevInput);
+    // Area between the curves
+    public void onButtonActionCalculate3(ActionEvent event) {
+        setTextField(textFieldComul3, normalDist.getAreaBetweenCurves(textFieldZValue3, textFieldZValue4));
 
-        setTextField(textFieldNormalDist2, normalDist.getNormalDist());
+        setTextField(textFieldAreaZValue1, roundOff(normalDist.cumul1, 4));
+        setTextField(textFieldAreaZValue2, roundOff(normalDist.cumul2, 4));
     }
 
-    // Clears all textFields of second section of the z-score page(lower)
-    public void onButtonActionClearZScore(ActionEvent event) {
-        textFieldXInput2.clear();
-        normalDistFields2.add(textFieldPopMeanInput);
-        normalDistFields2.add(textFieldStnDevInput);
-        normalDistFields2.add(textFieldNormalDist2);
+    /* Section without z-scores */
 
-        TextClearField clearField = new TextClearField();
-        clearField.clearField(normalDistFields2);
+    public void onButtonActionCalculate4(ActionEvent event) {
+        StatisticsNormalDistribution cumulative = new StatisticsNormalDistribution(textFieldXValue1, textFieldMean1, textFieldStnDev1);
+
+        setTextField(textFieldComul4, cumulative.getCumulative());
+    }
+
+    // Cumulative area compliment
+    public void onButtonActionCalculate5(ActionEvent event) {
+        StatisticsNormalDistribution cumulativeCompliment = new StatisticsNormalDistribution(textFieldXValue2, textFieldMean2, textFieldStndDev2);
+
+        setTextField(textFieldComul5, cumulativeCompliment.getCumulativeCompliment());
+
     }
 }

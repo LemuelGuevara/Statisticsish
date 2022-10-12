@@ -14,7 +14,8 @@ public class StatisticsNormalDistribution extends StatisticsConstructor {
     public double zValue1, zValue2;
     public double cumul1, cumul2;
 
-    public double xValue, mean, stnDeviation, cumuliProbability;
+    public double xValue, xValue1, xValue2, mean, stnDeviation, cumuliProbability;
+    public double cumulativeProbability1, cumulativeProbability2;
 
     /*
      * Constructor that initializes the class
@@ -37,13 +38,33 @@ public class StatisticsNormalDistribution extends StatisticsConstructor {
         mean = Double.parseDouble(textField2.getText());
         stnDeviation = Double.parseDouble(textField3.getText());
 
-        NormalDistribution normalDistStn =  new NormalDistribution(mean, stnDeviation);
-        cumuliProbability = normalDistStn.cumulativeProbability(xValue);
+        NormalDistribution normalDistStn1 =  new NormalDistribution(mean, stnDeviation);
+        cumuliProbability = normalDistStn1.cumulativeProbability(xValue);
+    }
 
+    /*
+     * Constructor that asks for 3 textFields
+     *
+     * @param textField1 = textField input1
+     * @param textField2 = textField input2
+     * @param textField3 = textField input3
+     * */
+    public StatisticsNormalDistribution(TextField textField1, TextField textField2,
+                                        TextField textField3, TextField textField4) {
+
+        super(textField1, textField2, textField3, textField4);
+
+        xValue1 = Double.parseDouble(textField1.getText());
+        xValue2 = Double.parseDouble(textField2.getText());
+        mean = Double.parseDouble(textField3.getText());
+        stnDeviation = Double.parseDouble(textField4.getText());
+
+        NormalDistribution normalDistStn2 =  new NormalDistribution(mean, stnDeviation);
+        cumulativeProbability1 = normalDistStn2.cumulativeProbability(xValue1);
+        cumulativeProbability2 = normalDistStn2.cumulativeProbability(xValue2);
     }
 
     NormalDistribution normalDist = new NormalDistribution();
-
 
     /*
     * Section with z-scores
@@ -99,5 +120,13 @@ public class StatisticsNormalDistribution extends StatisticsConstructor {
         cumulativeCompliment = 1 - cumuliProbability;
 
         return roundOff(cumulativeCompliment, 4);
+    }
+
+    // Gets the area between the curves
+    public double getAreaBetweenCurves() {
+        // Area between the curves
+        areaCurves = cumulativeProbability2 - cumulativeProbability1;
+
+        return roundOff(areaCurves, 4);
     }
 }

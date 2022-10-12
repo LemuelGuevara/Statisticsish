@@ -8,6 +8,7 @@
     <artifactId>Statisticsish</artifactId>
     <version>1.0.0</version>
     <name>Statisticsish</name>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,8 +78,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
-                    <source>18</source>
-                    <target>18</target>
+                    <source>19</source>
+                    <target>19</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -94,7 +95,7 @@
                             <transformers>
                                 <transformer implementation=
                                                      "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>main.MainApp</mainClass>
+                                    <mainClass>main.Statisticsish</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

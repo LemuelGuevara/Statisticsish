@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox fx:id="contentArea" prefHeight="1254.0" prefWidth="390.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.statistics.NormalDistributionController">
     <children>
@@ -29,11 +28,7 @@
                                  <children>
                                     <HBox prefHeight="29.0" prefWidth="317.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="65.0" prefWidth="317.0" text="P(z&lt;a)">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
+                                          <Label alignment="CENTER" prefHeight="65.0" prefWidth="317.0" text="P(z&lt;a)" />
                                        </children>
                                     </HBox>
                                       <GridPane prefHeight="75.0" prefWidth="317.0">
@@ -78,11 +73,7 @@
                                  <children>
                                     <HBox prefHeight="29.0" prefWidth="317.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="65.0" prefWidth="317.0" text="P(z&gt;a)">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
+                                          <Label alignment="CENTER" prefHeight="65.0" prefWidth="317.0" text="P(z&gt;a)" />
                                        </children>
                                     </HBox>
                                     <GridPane prefHeight="75.0" prefWidth="317.0">
@@ -181,11 +172,7 @@
                                  <children>
                                     <HBox prefHeight="54.0" prefWidth="317.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="61.0" prefWidth="317.0" text="P(z&lt;a)">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
+                                          <Label alignment="CENTER" prefHeight="61.0" prefWidth="317.0" text="P(z&lt;a)" />
                                        </children>
                                     </HBox>
                                     <GridPane prefHeight="142.0" prefWidth="317.0">
@@ -236,11 +223,7 @@
                                  <children>
                                     <HBox prefHeight="54.0" prefWidth="317.0">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="64.0" prefWidth="317.0" text="P(z&gt;a)">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
+                                          <Label alignment="CENTER" prefHeight="64.0" prefWidth="317.0" text="P(z&gt;a)" />
                                        </children>
                                     </HBox>
                                     <GridPane prefHeight="142.0" prefWidth="317.0">

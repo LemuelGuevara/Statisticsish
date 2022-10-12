@@ -18,20 +18,25 @@ public class NormalDistributionController {
     @FXML private TextField textFieldComul3;
     @FXML private TextField textFieldComul4;
     @FXML private TextField textFieldComul5;
+    @FXML private TextField textFieldComul6;
     @FXML private TextField textFieldZValue1;
     @FXML private TextField textFieldZValue2;
     @FXML private TextField textFieldZValue3;
     @FXML private TextField textFieldZValue4;
     @FXML private TextField textFieldAreaZValue1;
+    @FXML private TextField textFieldAreaXValue1;
+    @FXML private TextField textFieldAreaXValue2;
     @FXML private TextField textFieldAreaZValue2;
     @FXML private TextField textFieldXValue1;
     @FXML private TextField textFieldXValue2;
+    @FXML private TextField textFieldXValue3;
+    @FXML private TextField textFieldXValue4;
     @FXML private TextField textFieldMean1;
     @FXML private TextField textFieldMean2;
+    @FXML private TextField textFieldMean3;
     @FXML private TextField textFieldStnDev1;
     @FXML private TextField textFieldStndDev2;
-
-    List<TextField> normalDistFields = new ArrayList<>();
+    @FXML private TextField textFieldStnDev3;
 
     /* Section with z-scores*/
 
@@ -69,5 +74,15 @@ public class NormalDistributionController {
 
         setTextField(textFieldComul5, cumulativeCompliment.getCumulativeCompliment());
 
+    }
+
+    // Area between the curves
+    public void onButtonActionCalculate6(ActionEvent event) {
+        StatisticsNormalDistribution  areaBetweenCurves = new StatisticsNormalDistribution(textFieldXValue3, textFieldXValue4, textFieldMean3, textFieldStnDev3);
+
+        setTextField(textFieldAreaXValue1, roundOff(areaBetweenCurves.cumulativeProbability1, 4));
+        setTextField(textFieldAreaXValue2, roundOff(areaBetweenCurves.cumulativeProbability2, 4));
+
+        setTextField(textFieldComul6, areaBetweenCurves.getAreaBetweenCurves());
     }
 }

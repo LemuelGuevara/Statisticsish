@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="contentArea" prefHeight="1254.0" prefWidth="390.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.statistics.NormalDistributionController">
+<VBox fx:id="contentArea" prefHeight="1533.0" prefWidth="390.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.statistics.NormalDistributionController">
     <children>
-      <ScrollPane prefHeight="1254.0" prefWidth="390.0">
+      <ScrollPane prefHeight="1533.0" prefWidth="390.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1249.0" prefWidth="356.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1534.0" prefWidth="356.0">
                <children>
-                  <VBox prefHeight="1254.0" prefWidth="372.0" spacing="20.0">
+                  <VBox prefHeight="1563.0" prefWidth="372.0" spacing="20.0">
                      <children>
                           <HBox prefHeight="142.0" prefWidth="317.0">
                            <children>
@@ -41,7 +41,7 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           </rowConstraints>
                                           <children>
-                                              <Label prefHeight="89.0" prefWidth="477.0" text="Z-Score:" />
+                                              <Label prefHeight="89.0" prefWidth="477.0" text="Z-score:" />
                                               <TextField fx:id="textFieldZValue1" promptText="Input z value" GridPane.columnIndex="1" />
                                               <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Comulative Area:" GridPane.rowIndex="1" />
                                               <TextField fx:id="textFieldComul1" editable="false" layoutX="91.0" layoutY="65.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -86,7 +86,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label prefHeight="89.0" prefWidth="477.0" text="Z-Score:" />
+                                          <Label prefHeight="89.0" prefWidth="477.0" text="Z-score:" />
                                           <TextField fx:id="textFieldZValue2" promptText="Input z value" GridPane.columnIndex="1" />
                                           <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Cumulative Area:" GridPane.rowIndex="1" />
                                           <TextField fx:id="textFieldComul2" editable="false" layoutX="91.0" layoutY="65.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -116,7 +116,7 @@
                            <children>
                               <VBox prefHeight="265.0" prefWidth="317.0">
                                  <children>
-                                    <HBox prefHeight="45.0" prefWidth="317.0">
+                                    <HBox prefHeight="43.0" prefWidth="317.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="96.0" prefWidth="317.0" text="P(z1&lt;X&lt;z2)" />
                                        </children>
@@ -134,11 +134,11 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label prefHeight="89.0" prefWidth="477.0" text="Z-Score 1:" />
+                                          <Label prefHeight="89.0" prefWidth="477.0" text="Z-score 1:" />
                                           <TextField fx:id="textFieldZValue3" promptText="Input z value 1" GridPane.columnIndex="1" />
                                           <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Area between the curves:" GridPane.rowIndex="4" />
                                           <TextField fx:id="textFieldComul3" editable="false" layoutX="91.0" layoutY="65.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="Z-Score 2:" GridPane.rowIndex="1" />
+                                          <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="Z-score 2:" GridPane.rowIndex="1" />
                                           <TextField fx:id="textFieldZValue4" layoutX="148.0" layoutY="10.0" promptText="Input z value 2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label layoutX="10.0" layoutY="37.0" prefHeight="89.0" prefWidth="477.0" text="Area for z-value 1:" GridPane.rowIndex="2" />
                                           <Label layoutX="10.0" layoutY="63.0" prefHeight="89.0" prefWidth="477.0" text="Area for  for z-value 2:" GridPane.rowIndex="3" />
@@ -166,11 +166,11 @@
                               <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
-                        <HBox layoutX="35.0" layoutY="10.0" prefHeight="260.0" prefWidth="322.0">
+                        <HBox layoutX="35.0" layoutY="10.0" prefHeight="242.0" prefWidth="322.0">
                            <children>
-                              <VBox prefHeight="240.0" prefWidth="317.0">
+                              <VBox prefHeight="219.0" prefWidth="317.0">
                                  <children>
-                                    <HBox prefHeight="54.0" prefWidth="317.0">
+                                    <HBox prefHeight="47.0" prefWidth="317.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="61.0" prefWidth="317.0" text="P(z&lt;a)" />
                                        </children>
@@ -187,7 +187,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label prefHeight="89.0" prefWidth="477.0" text="X-value:" />
+                                          <Label prefHeight="89.0" prefWidth="477.0" text="X-Value:" />
                                           <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Mean:" GridPane.rowIndex="1" />
                                           <TextField fx:id="textFieldMean1" layoutX="91.0" layoutY="65.0" prefWidth="384.0" promptText="Input mean" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label layoutX="10.0" layoutY="46.0" prefHeight="89.0" prefWidth="477.0" text="Standard Deviation:" GridPane.rowIndex="2" />
@@ -217,11 +217,11 @@
                               <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
-                        <HBox layoutX="30.0" layoutY="700.0" prefHeight="260.0" prefWidth="322.0">
+                        <HBox layoutX="30.0" layoutY="700.0" prefHeight="237.0" prefWidth="317.0">
                            <children>
                               <VBox prefHeight="240.0" prefWidth="317.0">
                                  <children>
-                                    <HBox prefHeight="54.0" prefWidth="317.0">
+                                    <HBox prefHeight="49.0" prefWidth="317.0">
                                        <children>
                                           <Label alignment="CENTER" prefHeight="64.0" prefWidth="317.0" text="P(z&gt;a)" />
                                        </children>
@@ -251,6 +251,66 @@
                                     <HBox alignment="CENTER" prefHeight="29.0" prefWidth="317.0" spacing="20.0">
                                        <children>
                                           <Button mnemonicParsing="false" onAction="#onButtonActionCalculate5" prefHeight="22.0" prefWidth="90.0" text="Calculate" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="25.0" right="30.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="358.0" prefHeight="0.0" prefWidth="750.0">
+                           <children>
+                              <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="35.0" layoutY="381.0" prefHeight="405.0" prefWidth="317.0">
+                           <children>
+                              <VBox prefHeight="355.0" prefWidth="317.0">
+                                 <children>
+                                    <HBox prefHeight="45.0" prefWidth="317.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="96.0" prefWidth="317.0" text="P(x1&lt;Z&lt;x2)" />
+                                       </children>
+                                    </HBox>
+                                    <GridPane prefHeight="251.0" prefWidth="317.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.02337646484375" minWidth="10.0" prefWidth="150.5695037841797" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="655.6995239257812" minWidth="10.0" prefWidth="166.4304962158203" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label prefHeight="89.0" prefWidth="477.0" text="X-value 1:" />
+                                          <TextField fx:id="textFieldXValue3" promptText="Input x value 1" GridPane.columnIndex="1" />
+                                          <Label layoutX="10.0" layoutY="55.0" prefHeight="89.0" prefWidth="477.0" text="Area between the curves:" GridPane.rowIndex="6" />
+                                          <TextField fx:id="textFieldComul6" editable="false" layoutX="91.0" layoutY="65.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Label layoutX="10.0" layoutY="10.0" prefHeight="89.0" prefWidth="477.0" text="X-value 2:" GridPane.rowIndex="1" />
+                                          <TextField fx:id="textFieldXValue4" layoutX="148.0" layoutY="10.0" promptText="Input x value 2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label layoutX="10.0" layoutY="37.0" prefHeight="89.0" prefWidth="477.0" text="Area for x-value 1:" GridPane.rowIndex="4" />
+                                          <Label layoutX="10.0" layoutY="63.0" prefHeight="89.0" prefWidth="477.0" text="Area for  for x-value 2:" GridPane.rowIndex="5" />
+                                          <TextField fx:id="textFieldAreaXValue1" editable="false" layoutX="160.0" layoutY="38.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="textFieldAreaXValue2" editable="false" layoutX="160.0" layoutY="61.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label layoutX="10.0" layoutY="46.0" prefHeight="89.0" prefWidth="477.0" text="Mean:" GridPane.rowIndex="2" />
+                                          <Label layoutX="10.0" layoutY="81.0" prefHeight="89.0" prefWidth="477.0" text="Standard Deviation:" GridPane.rowIndex="3" />
+                                          <TextField fx:id="textFieldMean3" layoutX="161.0" layoutY="51.0" promptText="Input mean" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="textFieldStnDev3" layoutX="161.0" layoutY="86.0" promptText="Input standard deviation" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <HBox alignment="CENTER" prefHeight="32.0" prefWidth="317.0" spacing="20.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#onButtonActionCalculate6" prefHeight="22.0" prefWidth="90.0" text="Calculate" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="10.0" />

@@ -4,7 +4,7 @@
 
 package main;
 
-public class Main {
+public class Statisticsish {
     public static void main(String[] args) {
         MainApp.main(args);
     }

@@ -17,7 +17,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/Main.fxml"));
         Scene scene = new Scene(root);
-        stage.setTitle("Statistics Calculator");
+        stage.setTitle("Statisticsish");
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);

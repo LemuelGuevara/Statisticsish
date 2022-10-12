@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>main.app</groupId>
-    <artifactId>Statistics-Calculator</artifactId>
+    <artifactId>Statisticsish</artifactId>
     <version>1.0.0</version>
-    <name>Statistics Calculator</name>
+    <name>Statisticsish</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -95,7 +95,7 @@
                             <transformers>
                                 <transformer implementation=
                                                      "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>main.Main</mainClass>
+                                    <mainClass>main.Statisticsish</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

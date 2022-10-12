@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 import java.util.List;
 
 public abstract class StatisticsConstructor {
-    TextField textField, textField1, textField2, textField3;
+    TextField textField, textField1, textField2, textField3, textField4;
 
     static List<Double> dataList;
     List<Double> dataListX;
@@ -84,5 +84,19 @@ public abstract class StatisticsConstructor {
         this.textField1 = textField1;
         this.textField2 = textField2;
         this.textField3 = textField3;
+    }
+
+    /*
+     * Constructor that asks for 5 textFields
+     *
+     * @param textField1 = textField input1
+     * @param textField2 = textField input2
+     * @param textField3 = textField input3
+     * */
+    public StatisticsConstructor(TextField textField1, TextField textField2, TextField textField3, TextField textField4) {
+        this.textField1 = textField1;
+        this.textField2 = textField2;
+        this.textField3 = textField3;
+        this.textField4 = textField4;
     }
 }

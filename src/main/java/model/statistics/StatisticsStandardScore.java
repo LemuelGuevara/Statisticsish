@@ -30,7 +30,7 @@ public class StatisticsStandardScore extends StatisticsConstructor {
      * @param stnDeviation = textField3
      * */
     public StatisticsStandardScore(TextField textField, TextField textField2, TextField textField3) {
-        super(textField);
+        super(textField, textField2, textField3);
 
         xValue = Double.parseDouble(textField.getText());
         populationMeanInput = Double.parseDouble(textField2.getText());

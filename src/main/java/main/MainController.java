@@ -22,7 +22,6 @@ import java.util.List;
 import static controllers.text.TextAreaGetter.getTextAreaData;
 import static controllers.text.TextFieldSetter.setTextField;
 import static model.statistics.StatisticsArithmetic.*;
-import static model.statistics.StatisticsArithmetic.getStnDev;
 
 public class MainController {
     @FXML private TextArea textAreaData;

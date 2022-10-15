@@ -14,8 +14,8 @@ import static controllers.text.TextFieldSetter.*;
 import static controllers.text.TextAreaGetter.*;
 import controllers.text.TextClearField;
 import model.statistics.StatisticsArithmetic;
-
 import static model.statistics.StatisticsArithmetic.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class GeneralController {
         // Takes a dataSet
         data = getTextAreaData(textAreaData.getText());
 
-        StatisticsArithmetic stats =  new StatisticsArithmetic(data);
+        new StatisticsArithmetic(data);
 
         setTextField(textFieldCount, getCount());
         setTextField(textFieldSum, getSum());

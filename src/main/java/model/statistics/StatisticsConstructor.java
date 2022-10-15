@@ -20,15 +20,6 @@ public abstract class StatisticsConstructor {
     }
 
     /*
-     * Constructor that asks for a single textField
-     *
-     * @param textField = textField input
-     * */
-    public StatisticsConstructor(TextField textField) {
-        this.textField = textField;
-    }
-
-    /*
      * Constructor that asks for a list and a textField
      *
      * @param dataList = textArea input
@@ -71,6 +62,27 @@ public abstract class StatisticsConstructor {
         this.dataListX = dataListX;
         this.dataListY = dataListY;
         this.textField = textField;
+    }
+
+    /*
+     * Constructor that asks for a single textField
+     *
+     * @param textField = textField input
+     * */
+    public StatisticsConstructor(TextField textField) {
+        this.textField = textField;
+    }
+
+
+    /*
+     * Constructor that asks for 2 textFields
+     *
+     * @param textField1 = textField input1
+     * @param textField2 = textField input2
+     * */
+    public StatisticsConstructor(TextField textField1, TextField textField2) {
+        this.textField1 = textField1;
+        this.textField2 = textField2;
     }
 
     /*

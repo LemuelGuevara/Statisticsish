@@ -8,28 +8,58 @@ import static model.statistics.StatisticsArithmetic.roundOff;
 
 public class StatisticsNormalDistribution extends StatisticsConstructor {
     // zValue and zValue2 are for the area between the curves
-    double zValueCumul, zValueCumulComplim;
-    double cumulative, cumulativeCompliment, areaCurves;
+    double zValue;
+    double cumulativeProbability, cumulativeCompliment, areaCurves;
 
     public double zValue1, zValue2;
-    public double cumul1, cumul2;
 
-    public double xValue, xValue1, xValue2, mean, stnDeviation, cumuliProbability;
+    public double xValue, xValue1, xValue2, mean, stnDeviation;
     public double cumulativeProbability1, cumulativeProbability2;
+
+    NormalDistribution normalDist = new NormalDistribution();
 
     /*
      * Constructor that initializes the class
      *
      * */
     public StatisticsNormalDistribution() {
+        super();
     }
 
     /*
-     * Constructor that asks for 3 textFields
+     * Constructor for P(z<a) and P(z>a) with z-values
      *
-     * @param textField1 = textField input1
-     * @param textField2 = textField input2
-     * @param textField3 = textField input3
+     * @param textField = zValue
+     * */
+    public StatisticsNormalDistribution(TextField textField) {
+        super(textField);
+
+        zValue = Double.parseDouble(textField.getText());
+        cumulativeProbability = normalDist.cumulativeProbability(zValue);
+    }
+
+    /*
+     * Constructor for P(z1<X<z2) with z-values
+     *
+     * @param textField1 = zValue 1
+     * @param textField2 = zValue 2
+     * */
+    public StatisticsNormalDistribution(TextField textField1, TextField textField2) {
+        super(textField1, textField2);
+
+        zValue1 = Double.parseDouble(textField1.getText());
+        zValue2 = Double.parseDouble(textField2.getText());
+
+        cumulativeProbability1 = normalDist.cumulativeProbability(zValue1);
+        cumulativeProbability2 = normalDist.cumulativeProbability(zValue2);
+    }
+
+    /*
+     * Constructor for P(z<a) and P(z>a) with no z-value
+     *
+     * @param textField1 = xValue
+     * @param textField2 = mean
+     * @param textField3 = standard deviation
      * */
     public StatisticsNormalDistribution(TextField textField1, TextField textField2, TextField textField3) {
         super(textField1, textField2, textField3);
@@ -38,16 +68,18 @@ public class StatisticsNormalDistribution extends StatisticsConstructor {
         mean = Double.parseDouble(textField2.getText());
         stnDeviation = Double.parseDouble(textField3.getText());
 
-        NormalDistribution normalDistStn1 =  new NormalDistribution(mean, stnDeviation);
-        cumuliProbability = normalDistStn1.cumulativeProbability(xValue);
+        NormalDistribution normalDistCumulative = new NormalDistribution(mean, stnDeviation);
+
+        cumulativeProbability = normalDistCumulative.cumulativeProbability(xValue);
     }
 
     /*
-     * Constructor that asks for 3 textFields
+     * Constructor for P(x1<Z<x2) with no z-values
      *
-     * @param textField1 = textField input1
-     * @param textField2 = textField input2
-     * @param textField3 = textField input3
+     * @param textField1 = xValue1
+     * @param textField2 = xValue2
+     * @param textField3 = mean
+     * @param textField4 = standard deviation
      * */
     public StatisticsNormalDistribution(TextField textField1, TextField textField2,
                                         TextField textField3, TextField textField4) {
@@ -59,65 +91,20 @@ public class StatisticsNormalDistribution extends StatisticsConstructor {
         mean = Double.parseDouble(textField3.getText());
         stnDeviation = Double.parseDouble(textField4.getText());
 
-        NormalDistribution normalDistStn2 =  new NormalDistribution(mean, stnDeviation);
-        cumulativeProbability1 = normalDistStn2.cumulativeProbability(xValue1);
-        cumulativeProbability2 = normalDistStn2.cumulativeProbability(xValue2);
+        NormalDistribution normalDistArea = new NormalDistribution(mean, stnDeviation);
+
+        cumulativeProbability1 = normalDistArea.cumulativeProbability(xValue1);
+        cumulativeProbability2 = normalDistArea.cumulativeProbability(xValue2);
     }
-
-    NormalDistribution normalDist = new NormalDistribution();
-
-    /*
-    * Section with z-scores
-    * */
-
-    // Gets the cumulative area
-    public double getCumulative(TextField textField) {
-        zValueCumul = Double.parseDouble(textField.getText());
-        cumulative = normalDist.cumulativeProbability(zValueCumul);
-
-        return roundOff(cumulative, 4);
-    }
-
-    // Gets the compliment of the cumulative area
-    public double getCumulativeCompliment(TextField textField) {
-        zValueCumulComplim = Double.parseDouble(textField.getText());
-
-        cumulativeCompliment = 1 - normalDist.cumulativeProbability(zValueCumulComplim);
-
-        return roundOff(cumulativeCompliment, 4);
-    }
-
-    // Gets the area between the curves
-    public double getAreaBetweenCurves(TextField textFieldZ1, TextField textFieldZ2) {
-
-        // Z-values
-        zValue1 = Double.parseDouble(textFieldZ1.getText());
-        zValue2 = Double.parseDouble(textFieldZ2.getText());
-
-        // Cumulative areas
-        cumul1 = normalDist.cumulativeProbability(zValue1);
-        cumul2 = normalDist.cumulativeProbability(zValue2);
-
-        // Area between the curves
-        areaCurves = cumul2 - cumul1;
-
-        return roundOff(areaCurves, 4);
-    }
-
-    /*
-    * Section with no z-scores
-    * */
 
     // Gets the cumulative area
     public double getCumulative() {
-        cumulative = cumuliProbability;
-
-        return roundOff(cumulative, 4);
+        return roundOff(cumulativeProbability, 4);
     }
 
     // Gets the compliment of the cumulative area
     public double getCumulativeCompliment() {
-        cumulativeCompliment = 1 - cumuliProbability;
+        cumulativeCompliment = 1 - cumulativeProbability;
 
         return roundOff(cumulativeCompliment, 4);
     }
